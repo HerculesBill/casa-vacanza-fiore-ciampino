@@ -28,6 +28,7 @@
     --spacing-lg: 24px;
     --spacing-xl: 32px;
     --spacing-2xl: 48px;
+    --spacing-3xl: 64px;
     
     /* FONT */
     --font-serif: 'Merriweather', serif;
@@ -322,10 +323,249 @@ body {
 }
 
 /* ============================================
+   APPARTAMENTO SECTION
+   ============================================ */
+.appartamento-section {
+    padding: var(--spacing-3xl) 0;
+    background-color: var(--bg-cream);
+}
+
+.appartamento-section h2 {
+    text-align: center;
+    font-family: var(--font-serif);
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-dark);
+}
+
+.section-intro {
+    text-align: center;
+    font-size: var(--font-size-lg);
+    max-width: 800px;
+    margin: 0 auto var(--spacing-2xl);
+    color: var(--text-light);
+}
+
+.stats-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-3xl);
+}
+
+.stat-card {
+    background-color: var(--bg-white);
+    padding: var(--spacing-xl);
+    border-radius: 8px;
+    text-align: center;
+    border: 2px solid var(--accent-pink);
+    transition: var(--transition);
+}
+
+.stat-card:hover {
+    border-color: var(--accent-rose);
+    box-shadow: 0 4px 12px rgba(200, 122, 143, 0.2);
+}
+
+.stat-number {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--accent-rose);
+    font-family: var(--font-serif);
+    margin-bottom: var(--spacing-xs);
+}
+
+.stat-label {
+    color: var(--text-light);
+    font-size: var(--font-size-sm);
+}
+
+.appartamento-details {
+    display: grid;
+    gap: var(--spacing-2xl);
+}
+
+.detail-block {
+    background-color: var(--bg-white);
+    padding: var(--spacing-xl);
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-rose);
+}
+
+.detail-block h3 {
+    font-family: var(--font-serif);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-dark);
+}
+
+.detail-block p {
+    margin-bottom: var(--spacing-md);
+    line-height: 1.8;
+}
+
+.amenities-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.amenities-list li {
+    padding: var(--spacing-xs) 0;
+    color: var(--text-dark);
+}
+
+.highlight-box {
+    background-color: var(--accent-pink);
+    background: linear-gradient(135deg, var(--accent-pink) 0%, rgba(232, 180, 209, 0.3) 100%);
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    margin-top: var(--spacing-md);
+}
+
+.highlight-box h4 {
+    font-family: var(--font-serif);
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-dark);
+}
+
+/* ============================================
+   CAMERE SECTION
+   ============================================ */
+.camere-section {
+    padding: var(--spacing-3xl) 0;
+    background-color: var(--bg-white);
+}
+
+.camere-section h2 {
+    text-align: center;
+    font-family: var(--font-serif);
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-2xl);
+    color: var(--primary-dark);
+}
+
+.camere-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.camera-card {
+    background-color: var(--bg-cream);
+    padding: var(--spacing-xl);
+    border-radius: 8px;
+    border: 2px solid var(--border-light);
+    transition: var(--transition);
+}
+
+.camera-card:hover {
+    border-color: var(--accent-rose);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.camera-icon {
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.camera-card h3 {
+    font-family: var(--font-serif);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-sm);
+    color: var(--primary-dark);
+}
+
+.camera-desc {
+    font-style: italic;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-light);
+}
+
+.camera-card h4 {
+    font-weight: 600;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+    color: var(--accent-rose);
+}
+
+.camera-note {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    background-color: rgba(232, 180, 209, 0.2);
+    border-radius: 4px;
+    font-size: var(--font-size-sm);
+    font-style: italic;
+}
+
+/* ============================================
+   BALCONE SECTION
+   ============================================ */
+.balcone-section {
+    padding: var(--spacing-3xl) 0;
+    background: linear-gradient(135deg, var(--accent-rose) 0%, var(--accent-pink) 100%);
+    color: white;
+}
+
+.balcone-section h2 {
+    text-align: center;
+    font-family: var(--font-serif);
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-md);
+}
+
+.balcone-intro {
+    text-align: center;
+    font-size: var(--font-size-lg);
+    max-width: 700px;
+    margin: 0 auto var(--spacing-2xl);
+    font-style: italic;
+}
+
+.balcone-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.balcone-use {
+    text-align: center;
+    padding: var(--spacing-lg);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.balcone-use:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+.balcone-use .icon {
+    font-size: 48px;
+    display: block;
+    margin-bottom: var(--spacing-sm);
+}
+
+.balcone-use h4 {
+    font-family: var(--font-serif);
+    margin-bottom: var(--spacing-xs);
+}
+
+.balcone-use p {
+    font-size: var(--font-size-sm);
+    opacity: 0.9;
+}
+
+/* ============================================
    HIGHLIGHTS SECTION
    ============================================ */
 .highlights {
-    padding: var(--spacing-2xl) 0;
+    padding: var(--spacing-3xl) 0;
+    background-color: var(--bg-cream);
 }
 
 .highlights h2 {
@@ -374,38 +614,59 @@ body {
 }
 
 /* ============================================
-   STATS SECTION
+   POSIZIONE SECTION
    ============================================ */
-.stats {
-    background-color: var(--accent-rose);
-    color: white;
-    padding: var(--spacing-2xl) 0;
+.posizione-section {
+    padding: var(--spacing-3xl) 0;
+    background-color: var(--bg-white);
 }
 
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--spacing-xl);
+.posizione-section h2 {
     text-align: center;
-}
-
-.stat h3 {
-    font-size: var(--font-size-3xl);
     font-family: var(--font-serif);
-    margin-bottom: var(--spacing-xs);
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-dark);
 }
 
-.stat p {
-    font-size: var(--font-size-md);
-    opacity: 0.9;
+.posizione-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.posizione-card {
+    background-color: var(--bg-cream);
+    padding: var(--spacing-xl);
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-rose);
+}
+
+.posizione-card h3 {
+    font-family: var(--font-serif);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-sm);
+    color: var(--primary-dark);
+}
+
+.posizione-card .distance {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--accent-rose);
+    margin-bottom: var(--spacing-sm);
+}
+
+.posizione-card p {
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.7;
 }
 
 /* ============================================
    REVIEWS SECTION
    ============================================ */
 .reviews-preview {
-    padding: var(--spacing-2xl) 0;
-    background-color: var(--bg-white);
+    padding: var(--spacing-3xl) 0;
+    background-color: var(--bg-cream);
 }
 
 .reviews-preview h2 {
@@ -431,10 +692,16 @@ body {
 }
 
 .review-card {
-    background-color: var(--bg-cream);
+    background-color: var(--bg-white);
     padding: var(--spacing-lg);
     border-radius: 8px;
     border-left: 4px solid var(--accent-rose);
+    transition: var(--transition);
+}
+
+.review-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
 }
 
 .review-stars {
@@ -453,15 +720,11 @@ body {
     color: var(--text-light);
 }
 
-.reviews-cta {
-    text-align: center;
-}
-
 /* ============================================
    BOOKING CTA SECTION
    ============================================ */
 .booking-cta {
-    padding: var(--spacing-2xl) 0;
+    padding: var(--spacing-3xl) 0;
     background: linear-gradient(135deg, var(--primary-dark) 0%, var(--accent-rose) 100%);
     color: white;
 }
@@ -523,11 +786,84 @@ body {
 
 .direct-booking {
     text-align: center;
+    margin-bottom: var(--spacing-lg);
 }
 
 .direct-booking p {
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
     font-size: var(--font-size-lg);
+}
+
+.booking-info {
+    text-align: center;
+    font-size: var(--font-size-sm);
+    opacity: 0.9;
+}
+
+/* ============================================
+   CONTATTI SECTION
+   ============================================ */
+.contatti-section {
+    padding: var(--spacing-3xl) 0;
+    background-color: var(--bg-white);
+}
+
+.contatti-section h2 {
+    text-align: center;
+    font-family: var(--font-serif);
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-dark);
+}
+
+.contatti-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-2xl);
+}
+
+.contatto-card {
+    background-color: var(--bg-cream);
+    padding: var(--spacing-xl);
+    border-radius: 8px;
+    text-align: center;
+    border: 2px solid var(--border-light);
+    transition: var(--transition);
+}
+
+.contatto-card:hover {
+    border-color: var(--accent-rose);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.contatto-card .icon {
+    font-size: 48px;
+    display: block;
+    margin-bottom: var(--spacing-md);
+}
+
+.contatto-card h3 {
+    font-family: var(--font-serif);
+    margin-bottom: var(--spacing-sm);
+    color: var(--primary-dark);
+}
+
+.contatto-card a {
+    color: var(--accent-rose);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contatto-card a:hover {
+    text-decoration: underline;
+}
+
+.contatto-card .note {
+    margin-top: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    color: var(--text-light);
+    font-style: italic;
 }
 
 /* ============================================
@@ -626,5 +962,17 @@ body {
     
     .booking-buttons {
         grid-template-columns: 1fr;
+    }
+    
+    .amenities-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .balcone-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
