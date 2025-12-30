@@ -36,17 +36,13 @@
     </div>
 </nav>
 
-<!-- HERO SECTION WITH VIDEO -->
+<!-- HERO SECTION WITH PHOTO -->
 <section class="hero">
-    <div class="video-background">
-        <iframe src="https://www.youtube.com/embed/uZo6iwJaXKM?autoplay=1&mute=1&loop=1&playlist=uZo6iwJaXKM&controls=0&showinfo=0&rel=0" 
-                frameborder="0" 
-                allow="autoplay; encrypted-media" 
-                allowfullscreen></iframe>
+    <div class="hero-image" style="background: url('hero.jpg') center/cover no-repeat; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;">
         <div class="video-overlay"></div>
     </div>
     
-    <div class="container hero-content">
+    <div class="container hero-content" style="position: relative; z-index: 1;">
         <p class="hero-subtitle">CASA VACANZE FIORE CIAMPINO</p>
         <h1>Eleganza italiana, comodità moderna</h1>
         <p class="hero-tagline">A 120 metri dalla stazione • 20 minuti da Roma Termini • Balcone 40 m²</p>
@@ -94,6 +90,33 @@
     </div>
 </section>
 
+<!-- PHOTO GALLERY -->
+<section class="photo-gallery" style="padding: 60px 0; background: #f8f9fa;">
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 40px; font-family: 'Merriweather', serif; color: #2c3e50;">La Casa in Immagini</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+            <div style="overflow: hidden; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <img src="hero.jpg" alt="Casa Fiore - Vista Principale" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+            <div style="overflow: hidden; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <img src="balcone-panorama.jpg" alt="Balcone Panoramico 40m²" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+            <div style="overflow: hidden; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <img src="cucina-completa.jpg" alt="Cucina Completa" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+            <div style="overflow: hidden; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <img src="camera-1-principale.jpg" alt="Camera Principale" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+            <div style="overflow: hidden; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <img src="camera-2-familiare.jpg" alt="Camera Familiare" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+            <div style="overflow: hidden; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <img src="bagno-doccia.jpg" alt="Bagno Moderno" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- APPARTAMENTO DETAILS -->
 <section id="appartamento" class="appartamento-section">
     <div class="container">
@@ -119,6 +142,12 @@
             </div>
         </div>
         
+        <!-- Ingresso Smart Lock Photo -->
+        <div style="margin: 40px 0; text-align: center;">
+            <img src="ingresso-smart-lock.jpg" alt="Ingresso con Smart Lock" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+            <p style="margin-top: 15px; color: #666; font-style: italic;">Accesso autonomo 24/7 con Smart Lock</p>
+        </div>
+        
         <div class="appartamento-details">
             <div class="detail-block">
                 <h3>🛋️ Salotto: Il Cuore della Casa</h3>
@@ -128,6 +157,10 @@
             
             <div class="detail-block">
                 <h3>🍳 Cucina: Attrezzata e Moderna</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+                    <img src="cucina-completa.jpg" alt="Cucina Completa" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <img src="cucina-alternative.jpg" alt="Cucina Vista Alternativa" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                </div>
                 <p>Niente pizzicati improvvisati. Una cucina <strong>completamente attrezzata e nuova</strong>:</p>
                 <ul class="amenities-list">
                     <li>✓ Piano a induzione nuovo</li>
@@ -181,6 +214,13 @@
             <div class="camera-card">
                 <div class="camera-icon">🛏️</div>
                 <h3>Camera 1: La Camera Principale</h3>
+                
+                <!-- Camera 1 Photos -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0;">
+                    <img src="camera-1-principale.jpg" alt="Camera 1 Principale" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <img src="camera-1-alternative.jpg" alt="Camera 1 Vista Alternativa" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                </div>
+                
                 <p class="camera-desc">Sobria, luminosa, sofisticata. La camera principale di Casa Fiore è un rifugio di pace.</p>
                 <h4>Dotazioni:</h4>
                 <ul class="amenities-list">
@@ -200,6 +240,14 @@
             <div class="camera-card">
                 <div class="camera-icon">👨‍👩‍👧‍👦</div>
                 <h3>Camera 2: La Camera Familiare</h3>
+                
+                <!-- Camera 2 Photos -->
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 20px 0;">
+                    <img src="camera-2-familiare.jpg" alt="Camera 2 Familiare" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <img src="camera-2-alternative.jpg" alt="Camera 2 Vista Alternativa" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <img src="camera-2-alternative-2.jpg" alt="Camera 2 Vista Alternativa 2" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                </div>
+                
                 <p class="camera-desc">Colorata, accogliente, giocosa. Pensata per le famiglie con spazio generoso.</p>
                 <h4>Dotazioni:</h4>
                 <ul class="amenities-list">
@@ -218,6 +266,13 @@
             <div class="camera-card">
                 <div class="camera-icon">🚿</div>
                 <h3>Bagno: Design e Comfort</h3>
+                
+                <!-- Bagno Photos -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0;">
+                    <img src="bagno-doccia.jpg" alt="Bagno con Doccia" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <img src="bagno-alternative.jpg" alt="Bagno Vista Alternativa" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                </div>
+                
                 <p class="camera-desc">Un bagno pensato per il benessere. Moderno, spazioso, completamente rinnovato.</p>
                 <h4>Dotazioni:</h4>
                 <ul class="amenities-list">
@@ -240,6 +295,12 @@
     <div class="container">
         <div class="balcone-content">
             <h2>🌅 Balcone Panoramico: Il Tuo Spazio Privato</h2>
+            
+            <!-- Balcone Photo -->
+            <div style="margin: 30px 0; text-align: center;">
+                <img src="balcone-panorama.jpg" alt="Balcone Panoramico 40m²" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+            </div>
+            
             <p class="balcone-intro">40 metri quadri solo per te. Il balcone non è un'aggiunta. È lo spazio più bello della casa.</p>
             
             <div class="balcone-grid">
