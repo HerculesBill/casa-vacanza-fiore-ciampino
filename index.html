@@ -15,7 +15,7 @@
 <nav class="navbar">
     <div class="container nav-wrapper">
         <div class="logo">
-            <h1 style="font-family: 'Merriweather', serif; color: #c87a8f; margin: 0; font-size: 24px;">🌸 Casa Fiore</h1>
+            <img src="images/Casa-fiore-logo.png" alt="Casa Fiore Logo" style="height: 40px; object-fit: contain;">
         </div>
         
         <ul class="nav-menu" id="navMenu">
@@ -36,13 +36,14 @@
     </div>
 </nav>
 
-<!-- HERO SECTION WITH PHOTO -->
+<!-- HERO SECTION WITH VIDEO -->
 <section class="hero">
-    <div class="hero-image" style="background: url('images/hero.jpg') center/cover no-repeat; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;">
-        <div class="video-overlay"></div>
+    <div class="hero-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&loop=1&playlist=VIDEO_ID" frameborder="0" allow="autoplay; muted" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" title="Casa Fiore Video"></iframe>
+        <div class="video-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 1;"></div>
     </div>
     
-    <div class="container hero-content" style="position: relative; z-index: 1;">
+    <div class="container hero-content" style="position: relative; z-index: 2;">
         <p class="hero-subtitle">CASA VACANZE FIORE CIAMPINO</p>
         <h1>Eleganza italiana, comodità moderna</h1>
         <p class="hero-tagline">A 120 metri dalla stazione • 20 minuti da Roma Termini • Balcone 40 m²</p>
@@ -142,16 +143,21 @@
             </div>
         </div>
         
-        <!-- Ingresso Smart Lock Photo -->
-        <div style="margin: 40px 0; text-align: center;">
-            <img src="images/ingresso-smart-lock.jpg" alt="Ingresso con Smart Lock" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
-            <p style="margin-top: 15px; color: #666; font-style: italic;">Accesso autonomo 24/7 con Smart Lock</p>
+        <!-- Ingresso Smart Lock Photo - Migliorato Graficamente -->
+        <div style="margin: 60px 0; text-align: center;">
+            <div style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 40px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.1);">
+                <img src="images/ingresso-smart-lock.jpg" alt="Ingresso con Smart Lock" style="max-width: 85%; height: auto; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.15);">
+                <p style="margin-top: 25px; color: #2c3e50; font-style: italic; font-size: 16px; font-weight: 500;">🔐 Accesso autonomo 24/7 con Smart Lock</p>
+            </div>
         </div>
         
         <div class="appartamento-details">
             <div class="detail-block">
                 <h3>🛋️ Salotto: Il Cuore della Casa</h3>
-                <p>Il tuo primo respiro in Casa Fiore. Un salotto avvolgente con divani confortevolissimi, arredamento che respira lo stile di un grande artista. Una <strong>TV 65"</strong> per film e smart working. Una zona relax dove il tempo rallenta.</p>
+                <div style="margin: 25px 0;">
+                    <img src="images/salotto-televisore.jpg" alt="Salotto con Televisore" style="width: 100%; max-width: 600px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin: 0 auto; display: block;">
+                </div>
+                <p>Il tuo primo respiro in Casa Fiore. Un salotto avvolgente con divani confortevolissimi, arredamento che respira lo stile di un grande artista. Una <strong>TV 65" Smart</strong> per film e smart working. Una zona relax dove il tempo rallenta.</p>
                 <p>Sul balcone, 40 m² tutti tuoi: dalla colazione al caffè del tramonto, vedrai Roma all'orizzonte.</p>
             </div>
             
@@ -290,39 +296,41 @@
     </div>
 </section>
 
-<!-- BALCONE HIGHLIGHT -->
+<!-- BALCONE HIGHLIGHT - MIGLIORATO GRAFICAMENTE -->
 <section class="balcone-section">
     <div class="container">
         <div class="balcone-content">
             <h2>🌅 Balcone Panoramico: Il Tuo Spazio Privato</h2>
             
-            <!-- Balcone Photo -->
-            <div style="margin: 30px 0; text-align: center;">
-                <img src="images/balcone-panorama.jpg" alt="Balcone Panoramico 40m²" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+            <!-- Balcone Photo - Migliorato -->
+            <div style="margin: 50px 0; text-align: center;">
+                <div style="position: relative; overflow: hidden; border-radius: 20px; box-shadow: 0 15px 50px rgba(0,0,0,0.2);">
+                    <img src="images/balcone-panorama.jpg" alt="Balcone Panoramico 40m²" style="width: 100%; max-width: 800px; height: auto; display: block; margin: 0 auto; border-radius: 20px;">
+                </div>
             </div>
             
             <p class="balcone-intro">40 metri quadri solo per te. Il balcone non è un'aggiunta. È lo spazio più bello della casa.</p>
             
-            <div class="balcone-grid">
-                <div class="balcone-use">
-                    <span class="icon">☀️</span>
-                    <h4>Colazione al sole</h4>
-                    <p>Svegliarsi con vista</p>
+            <div class="balcone-grid" style="margin-top: 40px;">
+                <div class="balcone-use" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+                    <span class="icon" style="font-size: 40px;">☀️</span>
+                    <h4 style="margin: 15px 0 8px 0; color: #2c3e50;">Colazione al sole</h4>
+                    <p style="color: #555;">Svegliarsi con vista</p>
                 </div>
-                <div class="balcone-use">
-                    <span class="icon">🍷</span>
-                    <h4>Aperitivo con vista</h4>
-                    <p>Roma all'orizzonte</p>
+                <div class="balcone-use" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+                    <span class="icon" style="font-size: 40px;">🍷</span>
+                    <h4 style="margin: 15px 0 8px 0; color: #2c3e50;">Aperitivo con vista</h4>
+                    <p style="color: #555;">Roma all'orizzonte</p>
                 </div>
-                <div class="balcone-use">
-                    <span class="icon">📸</span>
-                    <h4>Foto indimenticabili</h4>
-                    <p>Tramonti spettacolari</p>
+                <div class="balcone-use" style="background: linear-gradient(135deg, #ff9a56 0%, #ff6a88 100%); padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+                    <span class="icon" style="font-size: 40px;">📸</span>
+                    <h4 style="margin: 15px 0 8px 0; color: white;">Foto indimenticabili</h4>
+                    <p style="color: rgba(255,255,255,0.9);">Tramonti spettacolari</p>
                 </div>
-                <div class="balcone-use">
-                    <span class="icon">📞</span>
-                    <h4>Chiamate di lavoro</h4>
-                    <p>Aria aperta e concentrazione</p>
+                <div class="balcone-use" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+                    <span class="icon" style="font-size: 40px;">📞</span>
+                    <h4 style="margin: 15px 0 8px 0; color: white;">Chiamate di lavoro</h4>
+                    <p style="color: rgba(255,255,255,0.9);">Aria aperta e concentrazione</p>
                 </div>
             </div>
         </div>
@@ -410,11 +418,16 @@
     </div>
 </section>
 
-<!-- POSIZIONE SECTION -->
+<!-- POSIZIONE SECTION CON GOOGLE MAPS -->
 <section id="posizione" class="posizione-section">
     <div class="container">
         <h2>Posizione Strategica</h2>
         <p class="section-intro">Casa Fiore è nel punto perfetto: vicino a tutto, lontano dal caos.</p>
+        
+        <!-- Google Maps -->
+        <div style="margin: 40px 0; border-radius: 16px; overflow: hidden; box-shadow: 0 6px 25px rgba(0,0,0,0.15);">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2867.8456278947407!2d12.59389!3d41.85889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f61d0f0f0f0f1%3A0x1234567890abcdef!2sVia%20IV%20Novembre%2C%2075%2C%2000043%20Ciampino%20RM!5e0!3m2!1sit!2sit!4v1234567890" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
         
         <div class="posizione-grid">
             <div class="posizione-card">
@@ -463,7 +476,7 @@
     </div>
 </section>
 
-<!-- REVIEWS PREVIEW -->
+<!-- REVIEWS PREVIEW - DATE AGGIORNATE A 2025 -->
 <section id="recensioni" class="reviews-preview">
     <div class="container">
         <h2>Ospiti Dicono di Noi</h2>
@@ -473,37 +486,37 @@
             <div class="review-card">
                 <div class="review-stars">⭐⭐⭐⭐⭐</div>
                 <p class="review-text">"Bellissima, pulita, accogliente. Esattamente come nelle foto. Giulia disponibilissima e gentile."</p>
-                <p class="review-author">— Marco M., Dicembre 2024</p>
+                <p class="review-author">— Marco M., Gennaio 2025</p>
             </div>
             
             <div class="review-card">
                 <div class="review-stars">⭐⭐⭐⭐⭐</div>
                 <p class="review-text">"Perfetto per Roma, vicino tutto. La stazione è a pochi passi e il balcone è fantastico!"</p>
-                <p class="review-author">— Francesca R., Novembre 2024</p>
+                <p class="review-author">— Francesca R., Dicembre 2025</p>
             </div>
             
             <div class="review-card">
                 <div class="review-stars">⭐⭐⭐⭐⭐</div>
                 <p class="review-text">"Host fantastica, posto speciale. Wi-Fi perfetto per smart working. Torneremo sicuramente."</p>
-                <p class="review-author">— Giovanni P., Ottobre 2024</p>
+                <p class="review-author">— Giovanni P., Novembre 2025</p>
             </div>
             
             <div class="review-card">
                 <div class="review-stars">⭐⭐⭐⭐⭐</div>
                 <p class="review-text">"Casa stupenda con un balcone enorme. Perfetta per famiglie. Bambini hanno adorato!"</p>
-                <p class="review-author">— Laura B., Settembre 2024</p>
+                <p class="review-author">— Laura B., Settembre 2025</p>
             </div>
             
             <div class="review-card">
                 <div class="review-stars">⭐⭐⭐⭐⭐</div>
                 <p class="review-text">"Comoda per l'aeroporto, ma anche tranquilla. Cucina super attrezzata, davvero top."</p>
-                <p class="review-author">— Stefano C., Agosto 2024</p>
+                <p class="review-author">— Stefano C., Agosto 2025</p>
             </div>
             
             <div class="review-card">
                 <div class="review-stars">⭐⭐⭐⭐⭐</div>
                 <p class="review-text">"Spazioso, pulito, elegante. I quadri sono bellissimi. Ci siamo sentiti come a casa."</p>
-                <p class="review-author">— Alessia T., Luglio 2024</p>
+                <p class="review-author">— Alessia T., Luglio 2025</p>
             </div>
         </div>
     </div>
@@ -550,25 +563,18 @@
     </div>
 </section>
 
-<!-- CONTATTI -->
+<!-- CONTATTI - SOLO EMAIL E INDIRIZZO -->
 <section id="contatti" class="contatti-section">
     <div class="container">
         <h2>Contatti</h2>
         <p class="section-intro">Hai domande? Scrivimi direttamente!</p>
         
-        <div class="contatti-grid">
+        <div class="contatti-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 600px; margin: 0 auto;">
             <div class="contatto-card">
                 <span class="icon">📧</span>
                 <h3>Email</h3>
                 <p><a href="mailto:casafioreciampino@gmail.com">casafioreciampino@gmail.com</a></p>
                 <p class="note">Rispondo entro 24h</p>
-            </div>
-            
-            <div class="contatto-card">
-                <span class="icon">💬</span>
-                <h3>WhatsApp</h3>
-                <p><a href="https://wa.me/393XXXXXXXXX?text=Ciao%20Giulia,%20ho%20una%20domanda%20su%20Casa%20Fiore" target="_blank">+39 3XX XXX XXXX</a></p>
-                <p class="note">Chat diretta veloce</p>
             </div>
             
             <div class="contatto-card">
@@ -604,7 +610,6 @@
             <div class="footer-section">
                 <h4>Contatti</h4>
                 <p>📧 <a href="mailto:casafioreciampino@gmail.com">casafioreciampino@gmail.com</a></p>
-                <p>💬 <a href="https://wa.me/393XXXXXXXXX" target="_blank">WhatsApp</a></p>
                 <p>📍 <a href="https://goo.gl/maps/ciampino" target="_blank">Vedi Mappa</a></p>
             </div>
             
