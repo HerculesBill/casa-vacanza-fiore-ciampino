@@ -154,8 +154,80 @@ const initCarousel = () => {
     startAutoplay();
 };
 
+// Legal modal (Privacy/Cookie quick view)
+const initLegalModal = () => {
+    const modal = document.getElementById('legalModal');
+    const contentEl = document.getElementById('legalContent');
+    const titleEl = document.getElementById('legalTitle');
+    const openPageEl = document.getElementById('legalOpenPage');
+
+    if (!modal || !contentEl || !titleEl || !openPageEl) return;
+
+    const closeModal = () => {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+    };
+
+    const openModal = () => {
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+    };
+
+    modal.querySelectorAll('[data-legal-close]').forEach(el => {
+        el.addEventListener('click', closeModal);
+    });
+
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+            closeModal();
+        }
+    });
+
+    const setLoading = () => {
+        contentEl.innerHTML = '<p>Caricamento…</p>';
+    };
+
+    const loadLegal = async (url, label) => {
+        setLoading();
+        titleEl.textContent = label;
+        openPageEl.href = url;
+
+        try {
+            const res = await fetch(url, { cache: 'no-store' });
+            if (!res.ok) throw new Error('Fetch failed');
+
+            const html = await res.text();
+            const doc = new DOMParser().parseFromString(html, 'text/html');
+            const main = doc.querySelector('main');
+
+            contentEl.innerHTML = main ? main.innerHTML : html;
+            openModal();
+        } catch (err) {
+            // Fallback: open full page if something goes wrong
+            window.location.href = url;
+        }
+    };
+
+    document.querySelectorAll('a.legal-link[data-legal]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const url = link.getAttribute('data-legal');
+            if (!url) return;
+
+            e.preventDefault();
+
+            const isPrivacy = url.toLowerCase().includes('privacy');
+            const label = isPrivacy ? 'Privacy Policy' : 'Cookie Policy';
+
+            loadLegal(url, label);
+        });
+    });
+};
+
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     animateOnScroll();
     initCarousel();
+    initLegalModal();
 });
