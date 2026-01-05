@@ -49,7 +49,7 @@
     </script>
 </head>
 <body>
-<!-- force-rebuild: 2026-01-05T21:51+01:00 -->
+<!-- force-rebuild: 2026-01-05T22:12+01:00 -->
 
 <!-- NAVIGATION -->
 <nav class="navbar">
@@ -95,11 +95,18 @@
         <div class="hero-cta">
             <a href="https://www.booking.com/hotel/it/casa-vacanze-fiore-ciampino-rome-108-sqm-6-sleeps.it.html" target="_blank" rel="noopener" class="btn btn-primary">Prenota su Booking</a>
             <a href="https://www.airbnb.it/rooms/1408730200025267483" target="_blank" rel="noopener" class="btn btn-secondary">Prenota su Airbnb</a>
+            <a href="#prenota" class="btn btn-tertiary">Prenotazione diretta</a>
         </div>
 
         <div class="hero-rating">
             <span class="stars">⭐⭐⭐⭐⭐</span>
             <span>4.8/5 - 12 recensioni Booking</span>
+        </div>
+
+        <div class="hero-badges" aria-label="Vantaggi principali">
+            <span class="hero-badge">✅ Self check-in 24/7</span>
+            <span class="hero-badge">✅ Wi‑Fi 1 Gbps</span>
+            <span class="hero-badge">✅ Cancellazione fino a 5 giorni</span>
         </div>
     </div>
 </section>
@@ -139,6 +146,7 @@
             <div class="trust-cta-buttons">
                 <a href="https://www.booking.com/hotel/it/casa-vacanze-fiore-ciampino-rome-108-sqm-6-sleeps.it.html" target="_blank" rel="noopener" class="btn btn-primary">Vedi disponibilità su Booking</a>
                 <a href="https://www.airbnb.it/rooms/1408730200025267483" target="_blank" rel="noopener" class="btn btn-outline">Vedi su Airbnb</a>
+                <a href="#prenota" class="btn btn-soft">Prenotazione diretta (7+ notti)</a>
             </div>
 
             <div class="trust-cta-metrics">
@@ -526,7 +534,7 @@
     </div>
 </section>
 
-<!-- BALCONE HIGHLIGHT (moved after Servizi) -->
+<!-- BALCONE HIGHLIGHT -->
 <section class="balcone-section">
     <div class="container">
         <div class="balcone-content">
@@ -546,7 +554,7 @@
                 </div>
             </div>
 
-            <div class="balcone-grid balcone-cards" style="margin-top: 40px;">
+            <div class="balcone-grid balcone-cards">
                 <div class="balcone-use balcone-use-sun">
                     <span class="icon">☀️</span>
                     <h4>Colazione al sole</h4>
@@ -702,12 +710,12 @@
                 <p>Prenotazione semplice, supporto Expedia, pagamento affidabile.</p>
                 <span class="arrow">→</span>
             </a>
-        </div>
 
-        <div class="direct-booking">
-            <p><strong>💌 PRENOTAZIONE DIRETTA (SCONTO POSSIBILE)</strong></p>
-            <p>Contattami per offerte speciali su soggiorni lunghi (7+ notti)</p>
-            <a href="#contatti" class="btn btn-secondary">📧 Chiedi disponibilità</a>
+            <div class="booking-card booking-card-direct">
+                <h3>💌 Prenotazione diretta</h3>
+                <p>Scrivi via email e ricevi risposta entro 24h. Sconto possibile per soggiorni lunghi (7+ notti).</p>
+                <a href="#contatti" class="btn btn-primary btn-small">📧 Chiedi disponibilità</a>
+            </div>
         </div>
 
         <div class="booking-info">
@@ -722,7 +730,7 @@
         <h2>Contatti</h2>
         <p class="section-intro">Hai domande? Scrivimi direttamente!</p>
 
-        <div class="contatti-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 600px; margin: 0 auto;">
+        <div class="contatti-grid contatti-grid-compact">
             <div class="contatto-card">
                 <span class="icon">📧</span>
                 <h3>Email</h3>
@@ -787,10 +795,11 @@
     </div>
 </footer>
 
-<!-- Mobile sticky booking bar (Booking/Airbnb only) -->
+<!-- Mobile sticky booking bar -->
 <div class="sticky-booking" aria-label="Prenotazione rapida">
     <a class="sticky-booking-btn sticky-booking-booking" href="https://www.booking.com/hotel/it/casa-vacanze-fiore-ciampino-rome-108-sqm-6-sleeps.it.html" target="_blank" rel="noopener">Booking</a>
     <a class="sticky-booking-btn sticky-booking-airbnb" href="https://www.airbnb.it/rooms/1408730200025267483" target="_blank" rel="noopener">Airbnb</a>
+    <a class="sticky-booking-btn sticky-booking-direct" href="#prenota">Diretto</a>
 </div>
 
 <!-- Legal modal / bottom sheet -->
