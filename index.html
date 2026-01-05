@@ -136,6 +136,52 @@
             z-index: 10;
         }
 
+        /* SALOTTO (desktop two-columns, mobile stacked) */
+        .salotto-layout {
+            display: flex;
+            gap: 28px;
+            align-items: flex-start;
+            margin: 25px 0 10px;
+        }
+
+        .salotto-media {
+            flex: 0 0 340px;
+            text-align: center;
+        }
+
+        .salotto-media img {
+            width: 100%;
+            max-width: 340px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin: 0 auto;
+            display: block;
+            background: rgba(255,255,255,0.95);
+            padding: 12px;
+            object-fit: contain;
+        }
+
+        .salotto-text {
+            flex: 1;
+            min-width: 0;
+        }
+
+        @media (max-width: 900px) {
+            .salotto-layout {
+                flex-direction: column;
+                align-items: center;
+            }
+            .salotto-media {
+                flex-basis: auto;
+            }
+            .salotto-media img {
+                max-width: 520px;
+            }
+            .salotto-text {
+                width: 100%;
+            }
+        }
+
         @media (max-width: 768px) {
             .carousel-nav {
                 width: 40px;
@@ -352,11 +398,16 @@
         <div class="appartamento-details">
             <div class="detail-block">
                 <h3>🛋️ Salotto: Il Cuore della Casa</h3>
-                <div style="margin: 25px 0; text-align: center;">
-                    <img src="images/tv-65.jpg" alt="TV 65 pollici Smart" style="width: 100%; max-width: 340px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin: 0 auto; display: block; background: rgba(255,255,255,0.95); padding: 12px; object-fit: contain;" loading="lazy">
+
+                <div class="salotto-layout">
+                    <div class="salotto-media">
+                        <img src="images/tv-65.jpg" alt="TV 65 pollici Smart" loading="lazy">
+                    </div>
+                    <div class="salotto-text">
+                        <p>Il tuo primo respiro in Casa Fiore. Un salotto avvolgente con divani confortevolissimi, arredamento che respira lo stile di un grande artista. Una <strong>TV 65" Smart</strong> per film e smart working. Una zona relax dove il tempo rallenta.</p>
+                        <p>Sul balcone, 40 m² tutti tuoi: dalla colazione al caffe del tramonto, vedrai Roma all'orizzonte.</p>
+                    </div>
                 </div>
-                <p>Il tuo primo respiro in Casa Fiore. Un salotto avvolgente con divani confortevolissimi, arredamento che respira lo stile di un grande artista. Una <strong>TV 65" Smart</strong> per film e smart working. Una zona relax dove il tempo rallenta.</p>
-                <p>Sul balcone, 40 m² tutti tuoi: dalla colazione al caffe del tramonto, vedrai Roma all'orizzonte.</p>
                 
                 <!-- VIDEO SECTION -->
                 <div style="margin-top: 40px; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
