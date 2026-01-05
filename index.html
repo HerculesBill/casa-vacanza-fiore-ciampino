@@ -5,326 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casa Vacanze Fiore Ciampino | Alloggio Roma 108m² Aeroporto</title>
     <meta name="description" content="Elegante casa vacanza a Ciampino, 120m stazione, 20min Roma Termini. Balcone 40m², Wi-Fi Gigabit, aria condizionata. Prenota su Booking o Airbnb.">
+
+    <link rel="canonical" href="https://herculesbill.github.io/casa-vacanza-fiore-ciampino/">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="Casa Vacanze Fiore Ciampino">
+    <meta property="og:description" content="Elegante casa vacanza a Ciampino: 120m dalla stazione, 20min Roma Termini. Balcone 40m², Wi‑Fi 1Gbps, aria condizionata, self check-in 24/7.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://herculesbill.github.io/casa-vacanza-fiore-ciampino/">
+    <meta property="og:image" content="https://herculesbill.github.io/casa-vacanza-fiore-ciampino/images/hero.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* CAROUSEL STYLES */
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto 40px;
-            background: #f8f9fa;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-        }
 
-        .carousel-wrapper {
-            position: relative;
-            width: 100%;
-            padding-bottom: 66.67%;
-            overflow: hidden;
-        }
-
-        .carousel-inner {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .carousel-item {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .carousel-item.active {
-            opacity: 1;
-        }
-
-        .carousel-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .carousel-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
-            background: rgba(255,255,255,0.9);
-            border: none;
-            cursor: pointer;
-            font-size: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10;
-            border-radius: 50%;
-            transition: all 0.3s;
-        }
-
-        .carousel-nav:hover {
-            background: rgba(255,255,255,1);
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .carousel-nav.prev {
-            left: 20px;
-        }
-
-        .carousel-nav.next {
-            right: 20px;
-        }
-
-        .carousel-dots {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px;
-            z-index: 10;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .carousel-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.6);
-            cursor: pointer;
-            border: none;
-            transition: all 0.3s;
-        }
-
-        .carousel-dot.active {
-            background: rgba(255,255,255,1);
-            width: 32px;
-            border-radius: 6px;
-        }
-
-        .carousel-dot:hover {
-            background: rgba(255,255,255,0.8);
-        }
-
-        .carousel-counter {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(0,0,0,0.5);
-            color: white;
-            padding: 8px 14px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            z-index: 10;
-        }
-
-        /* SMART LOCK (image sizing + cleaner spacing) */
-        .smartlock-feature {
-            margin: 60px 0;
-            text-align: center;
-        }
-
-        .smartlock-card {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 28px;
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .smartlock-card img {
-            width: 100%;
-            max-width: 520px;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-            display: block;
-        }
-
-        .smartlock-caption {
-            margin-top: 16px;
-            color: #2c3e50;
-            font-style: italic;
-            font-size: 16px;
-            font-weight: 500;
-        }
-
-        /* SALOTTO (desktop two-columns, mobile stacked) */
-        .salotto-layout {
-            display: flex;
-            gap: 34px;
-            align-items: center;
-            margin: 22px 0 10px;
-        }
-
-        .salotto-media {
-            flex: 0 0 380px;
-            text-align: center;
-        }
-
-        .salotto-media img {
-            width: 100%;
-            max-width: 380px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            margin: 0 auto;
-            display: block;
-            background: rgba(255,255,255,0.95);
-            padding: 12px;
-            object-fit: contain;
-        }
-
-        .salotto-text {
-            flex: 1;
-            min-width: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        /* BALCONE (balance big image with content) */
-        .balcone-hero {
-            display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
-            gap: 34px;
-            align-items: center;
-            margin: 35px 0 28px;
-        }
-
-        .balcone-hero-media {
-            text-align: center;
-        }
-
-        .balcone-hero-media img {
-            width: 100%;
-            max-width: 720px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            border-radius: 20px;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
-        }
-
-        .balcone-hero-text {
-            text-align: left;
-        }
-
-        .balcone-hero-text .balcone-intro {
-            text-align: left;
-            margin: 0;
-        }
-
-        .balcone-hero-list {
-            list-style: none;
-            padding: 0;
-            margin: 18px 0 0;
-        }
-
-        .balcone-hero-list li {
-            margin-bottom: 10px;
-            font-size: 16px;
-            opacity: 0.95;
-        }
-
-        .balcone-grid {
-            margin-top: 28px !important;
-        }
-
-        @media (max-width: 900px) {
-            .salotto-layout {
-                flex-direction: column;
-                align-items: center;
-                text-align: left;
-            }
-            .salotto-media {
-                flex-basis: auto;
-            }
-            .salotto-media img {
-                max-width: 560px;
-            }
-            .salotto-text {
-                width: 100%;
-            }
-
-            .balcone-hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .balcone-hero-text {
-                text-align: center;
-            }
-            .balcone-hero-text .balcone-intro {
-                text-align: center;
-            }
-            .balcone-hero-list {
-                max-width: 720px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .carousel-nav {
-                width: 40px;
-                height: 40px;
-                font-size: 20px;
-            }
-            .carousel-nav.prev {
-                left: 10px;
-            }
-            .carousel-nav.next {
-                right: 10px;
-            }
-            .carousel-dots {
-                bottom: 15px;
-                gap: 6px;
-            }
-            .carousel-dot {
-                width: 10px;
-                height: 10px;
-            }
-            .carousel-dot.active {
-                width: 28px;
-            }
-
-            .smartlock-card {
-                padding: 20px;
-            }
-            .smartlock-card img {
-                max-width: 92%;
-            }
-        }
-    </style>
+    <!-- Structured data (basic) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LodgingBusiness",
+      "name": "Casa Vacanze Fiore Ciampino",
+      "description": "Elegante casa vacanza a Ciampino (Roma) con balcone panoramico 40 m², Wi‑Fi 1 Gbps e self check-in 24/7.",
+      "url": "https://herculesbill.github.io/casa-vacanza-fiore-ciampino/",
+      "image": [
+        "https://herculesbill.github.io/casa-vacanza-fiore-ciampino/images/hero.jpg",
+        "https://herculesbill.github.io/casa-vacanza-fiore-ciampino/images/balcone-panorama.jpg"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via IV Novembre, 75",
+        "addressLocality": "Ciampino",
+        "addressRegion": "RM",
+        "postalCode": "00043",
+        "addressCountry": "IT"
+      },
+      "sameAs": [
+        "https://www.booking.com/hotel/it/casa-vacanze-fiore-ciampino-rome-108-sqm-6-sleeps.it.html",
+        "https://www.airbnb.it/rooms/1408730200025267483"
+      ]
+    }
+    </script>
 </head>
 <body>
-<!-- force-rebuild: 2026-01-05T20:26+01:00 -->
+<!-- force-rebuild: 2026-01-05T21:17+01:00 -->
+
 <!-- NAVIGATION -->
 <nav class="navbar">
     <div class="container nav-wrapper">
         <div class="logo">
             <img src="images/Casa-fiore-logo.png" alt="Casa Fiore Logo" style="height: 40px; object-fit: contain;">
         </div>
-        
+
         <ul class="nav-menu" id="navMenu">
             <li><a href="https://herculesbill.github.io/casa-vacanza-fiore-ciampino/">Home</a></li>
             <li><a href="#appartamento">Appartamento</a></li>
@@ -332,10 +65,11 @@
             <li><a href="#servizi">Servizi</a></li>
             <li><a href="#posizione">Posizione</a></li>
             <li><a href="#recensioni">Recensioni</a></li>
-            <li><a href="#contatti" class="cta-nav">Contatti</a></li>
+            <li><a href="#contatti">Contatti</a></li>
+            <li><a href="#prenota" class="cta-nav">Prenota</a></li>
         </ul>
-        
-        <button class="hamburger" id="hamburger">
+
+        <button class="hamburger" id="hamburger" aria-label="Apri menu">
             <span></span>
             <span></span>
             <span></span>
@@ -344,25 +78,25 @@
 </nav>
 
 <!-- HERO SECTION WITH IMAGE -->
-<section class="hero" style="position: relative; height: 100vh; overflow: hidden; background-image: url('images/salotto-1.jpg'); background-size: cover; background-position: center;">
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.35); z-index: 1;"></div>
-    
-    <div class="container hero-content" style="position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: center; height: 100%;">
+<section class="hero hero-home" style="background-image: url('images/salotto-1.jpg');">
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content hero-content-home">
         <p class="hero-subtitle">CASA VACANZE FIORE CIAMPINO</p>
-        <h1>Eleganza italiana, comodita moderna</h1>
+        <h1>Eleganza italiana, comodità moderna</h1>
         <p class="hero-tagline">A 120 metri dalla stazione • 20 minuti da Roma Termini • Balcone 40 m²</p>
-        
+
         <div class="hero-features">
             <div class="feature-item">✨ Opere d'Arte</div>
             <div class="feature-item">🛏️ 2 Camere • 6 Ospiti</div>
             <div class="feature-item">✈️ Aeroporto 450m</div>
         </div>
-        
+
         <div class="hero-cta">
-            <a href="https://www.booking.com/hotel/it/casa-vacanze-fiore-ciampino-rome-108-sqm-6-sleeps.it.html" target="_blank" class="btn btn-primary">Prenota su Booking</a>
-            <a href="https://www.airbnb.it/rooms/1408730200025267483" target="_blank" class="btn btn-secondary">Prenota su Airbnb</a>
+            <a href="https://www.booking.com/hotel/it/casa-vacanze-fiore-ciampino-rome-108-sqm-6-sleeps.it.html" target="_blank" rel="noopener" class="btn btn-primary">Prenota su Booking</a>
+            <a href="https://www.airbnb.it/rooms/1408730200025267483" target="_blank" rel="noopener" class="btn btn-secondary">Prenota su Airbnb</a>
         </div>
-        
+
         <div class="hero-rating">
             <span class="stars">⭐⭐⭐⭐⭐</span>
             <span>4.8/5 - 12 recensioni Booking</span>
@@ -377,30 +111,64 @@
             <div class="usp-card">
                 <div class="usp-icon">✈️</div>
                 <h3>Aeroporto 450m</h3>
-                <p>A 5 minuti di bus con Ciampino AirLink o taxi. Perfetto per chi arriva da qualunque parte del mondo. Zero stress, massima comodita.</p>
+                <p>A 5 minuti di bus con Ciampino AirLink o taxi. Perfetto per chi arriva da qualunque parte del mondo. Zero stress, massima comodità.</p>
             </div>
-            
+
             <div class="usp-card">
                 <div class="usp-icon">🚂</div>
                 <h3>Stazione 120m</h3>
                 <p>20 minuti di treno verso Roma Termini, Colosseo, Basilica di San Paolo. Ideale per turismo, business, smart working. Senza auto, senza stress.</p>
             </div>
-            
+
             <div class="usp-card">
                 <div class="usp-icon">🌅</div>
                 <h3>Balcone 40 m²</h3>
-                <p>Soffitti alti, pavimenti in marmo, vista citta. Quadri di un grande pittore italiano. Qui il tempo scorre diverso.</p>
+                <p>Soffitti alti, pavimenti in marmo, vista città. Quadri di un grande pittore italiano. Qui il tempo scorre diverso.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TRUST + CTA (above the gallery) -->
+<section class="trust-cta-section">
+    <div class="container">
+        <div class="trust-cta-header">
+            <h2>Più prenoti, meno stress</h2>
+            <p class="trust-cta-subtitle">Self check-in 24/7, Wi‑Fi 1 Gbps, aria condizionata in tutte le stanze. Tutto pronto, appena arrivi.</p>
+
+            <div class="trust-cta-buttons">
+                <a href="https://www.booking.com/hotel/it/casa-vacanze-fiore-ciampino-rome-108-sqm-6-sleeps.it.html" target="_blank" rel="noopener" class="btn btn-primary">Vedi disponibilità su Booking</a>
+                <a href="https://www.airbnb.it/rooms/1408730200025267483" target="_blank" rel="noopener" class="btn btn-outline">Vedi su Airbnb</a>
+            </div>
+
+            <div class="trust-cta-metrics">
+                <div class="trust-pill">⭐⭐⭐⭐⭐ 4.8/5</div>
+                <div class="trust-pill">✅ Self check-in 24/7</div>
+                <div class="trust-pill">🚂 120m dalla stazione</div>
+            </div>
+        </div>
+
+        <div class="trust-cta-reviews">
+            <div class="review-card review-card-compact">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">"Perfetto per Roma, vicino tutto. La stazione è a pochi passi e il balcone è fantastico!"</p>
+                <p class="review-author">— Francesca R.</p>
+            </div>
+
+            <div class="review-card review-card-compact">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">"Host fantastica, posto speciale. Wi‑Fi perfetto per smart working. Torneremo sicuramente."</p>
+                <p class="review-author">— Giovanni P.</p>
             </div>
         </div>
     </div>
 </section>
 
 <!-- PHOTO GALLERY WITH CAROUSEL -->
-<section class="photo-gallery" style="padding: 60px 0; background: #f8f9fa;">
+<section class="photo-gallery">
     <div class="container">
-        <h2 style="text-align: center; margin-bottom: 40px; font-family: 'Merriweather', serif; color: #2c3e50;">La Casa in Immagini</h2>
-        
-        <!-- CAROUSEL -->
+        <h2>La Casa in Immagini</h2>
+
         <div class="carousel-container">
             <div class="carousel-wrapper">
                 <div class="carousel-inner" id="carouselInner">
@@ -456,15 +224,15 @@
                         <img src="images/stazione-di-ciampino.jpg" alt="Stazione di Ciampino" loading="lazy">
                     </div>
                 </div>
-                
-                <button class="carousel-nav prev" onclick="moveCarousel(-1)">&#10094;</button>
-                <button class="carousel-nav next" onclick="moveCarousel(1)">&#10095;</button>
-                
+
+                <button class="carousel-nav prev" onclick="moveCarousel(-1)" aria-label="Foto precedente">&#10094;</button>
+                <button class="carousel-nav next" onclick="moveCarousel(1)" aria-label="Foto successiva">&#10095;</button>
+
                 <div class="carousel-counter">
                     <span id="currentSlide">1</span> / <span id="totalSlides">17</span>
                 </div>
             </div>
-            
+
             <div class="carousel-dots" id="carouselDots"></div>
         </div>
     </div>
@@ -475,7 +243,7 @@
     <div class="container">
         <h2>Un Rifugio di Eleganza</h2>
         <p class="section-intro">Benvenuto in Casa Fiore, 108 metri quadri di pura eleganza nel cuore di Ciampino. Ogni angolo racconta la storia di un grande pittore italiano, le cui opere adornano le mura.</p>
-        
+
         <div class="stats-cards">
             <div class="stat-card">
                 <div class="stat-number">108 m²</div>
@@ -494,7 +262,7 @@
                 <div class="stat-label">Balcone panoramico</div>
             </div>
         </div>
-        
+
         <!-- Ingresso Smart Lock Photo -->
         <div class="smartlock-feature">
             <div class="smartlock-card">
@@ -502,7 +270,7 @@
                 <p class="smartlock-caption">🔐 Accesso autonomo 24/7 con Smart Lock</p>
             </div>
         </div>
-        
+
         <div class="appartamento-details">
             <div class="detail-block">
                 <h3>🛋️ Salotto: Il Cuore della Casa</h3>
@@ -513,26 +281,28 @@
                     </div>
                     <div class="salotto-text">
                         <p>Il tuo primo respiro in Casa Fiore. Un salotto avvolgente con divani confortevolissimi, arredamento che respira lo stile di un grande artista. Una <strong>TV 65" Smart</strong> per film e smart working. Una zona relax dove il tempo rallenta.</p>
-                        <p>Sul balcone, 40 m² tutti tuoi: dalla colazione al caffe del tramonto, vedrai Roma all'orizzonte.</p>
+                        <p>Sul balcone, 40 m² tutti tuoi: dalla colazione al caffè del tramonto, vedrai Roma all'orizzonte.</p>
                     </div>
                 </div>
-                
+
                 <!-- VIDEO SECTION -->
-                <div style="margin-top: 40px; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
-                    <h4 style="color: white; margin-top: 0; margin-bottom: 20px; text-align: center;">🎬 Guarda il Nostro Video di Presentazione</h4>
-                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px;">
-                        <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/uZo6iwJaXKM?autoplay=0&mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="video-block">
+                    <h4>🎬 Guarda il Nostro Video di Presentazione</h4>
+                    <div class="video-embed">
+                        <iframe src="https://www.youtube.com/embed/uZo6iwJaXKM?autoplay=0&mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
-            
+
             <div class="detail-block">
                 <h3>🍳 Cucina: Attrezzata e Moderna</h3>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
-                    <img src="images/cucina-completa.jpg" alt="Cucina Completa" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);" loading="lazy">
-                    <img src="images/cucina-alternative.jpg" alt="Cucina Vista Alternativa" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);" loading="lazy">
+
+                <div class="media-grid media-grid-2">
+                    <img src="images/cucina-completa.jpg" alt="Cucina Completa" class="media-img" loading="lazy">
+                    <img src="images/cucina-alternative.jpg" alt="Cucina Vista Alternativa" class="media-img" loading="lazy">
                 </div>
-                <p>Niente pizzicati improvvisati. Una cucina <strong>completamente attrezzata e nuova</strong>:</p>
+
+                <p>Niente improvvisazioni. Una cucina <strong>completamente attrezzata e nuova</strong>:</p>
                 <ul class="amenities-list">
                     <li>✓ Piano a induzione nuovo</li>
                     <li>✓ Forno e microonde</li>
@@ -541,29 +311,29 @@
                     <li>✓ Macchina Nespresso premium</li>
                     <li>✓ Bollitore elettrico</li>
                     <li>✓ Tutti gli utensili necessari</li>
-                    <li>✓ Stoviglie e bicchieri di qualita</li>
+                    <li>✓ Stoviglie e bicchieri di qualità</li>
                 </ul>
             </div>
-            
+
             <div class="detail-block">
                 <h3>📱 Connessione e Tecnologia</h3>
-                <p>Non e solo una casa vacanza. E una base operativa per smart working.</p>
+                <p>Non è solo una casa vacanza. È una base operativa per smart working.</p>
                 <div class="highlight-box">
-                    <h4>Wi-Fi Fiber 1 Gigabit:</h4>
+                    <h4>Wi‑Fi Fiber 1 Gigabit:</h4>
                     <ul class="amenities-list">
-                        <li>✓ 1000 Mbps di velocita reale</li>
+                        <li>✓ 1000 Mbps di velocità reale</li>
                         <li>✓ Streaming 4K senza buffering</li>
-                        <li>✓ Videoconferenze su piu dispositivi</li>
+                        <li>✓ Videoconferenze su più dispositivi</li>
                         <li>✓ Download istantanei</li>
                         <li>✓ Coverage totale (camere, salotto, balcone)</li>
                     </ul>
-                    <p><strong>Scrivania dedicata</strong> nella camera 1 con presa ethernet per connessione ancora piu stabile.</p>
+                    <p><strong>Scrivania dedicata</strong> nella camera 1 con presa ethernet per connessione ancora più stabile.</p>
                 </div>
             </div>
-            
+
             <div class="detail-block">
                 <h3>❄️ Aria Condizionata e Riscaldamento</h3>
-                <p>Estate? Inverno? Non e un problema. Condizionatori <strong>nuovi e potenti</strong> in:</p>
+                <p>Estate? Inverno? Non è un problema. Condizionatori <strong>nuovi e potenti</strong> in:</p>
                 <ul class="amenities-list">
                     <li>✓ Salotto</li>
                     <li>✓ Camera 1</li>
@@ -580,19 +350,18 @@
 <section id="camere" class="camere-section">
     <div class="container">
         <h2>Le Camere: Comfort e Eleganza</h2>
-        
+
         <div class="camere-grid">
             <div class="camera-card">
                 <div class="camera-icon">🛏️</div>
                 <h3>Camera 1: La Camera Principale</h3>
-                
-                <!-- Camera 1 Photos -->
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0;">
-                    <img src="images/camera-1-principale.jpg" alt="Camera 1 Principale" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);" loading="lazy">
-                    <img src="images/camera-1-alternative.jpg" alt="Camera 1 Vista Alternativa" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);" loading="lazy">
+
+                <div class="media-grid media-grid-2">
+                    <img src="images/camera-1-principale.jpg" alt="Camera 1 Principale" class="media-img" loading="lazy">
+                    <img src="images/camera-1-alternative.jpg" alt="Camera 1 Vista Alternativa" class="media-img" loading="lazy">
                 </div>
-                
-                <p class="camera-desc">Sobria, luminosa, sofisticata. La camera principale di Casa Fiore e un rifugio di pace.</p>
+
+                <p class="camera-desc">Sobria, luminosa, sofisticata. La camera principale di Casa Fiore è un rifugio di pace.</p>
                 <h4>Dotazioni:</h4>
                 <ul class="amenities-list">
                     <li>✓ Letto matrimoniale 160x200 cm (queen bed)</li>
@@ -607,18 +376,17 @@
                 </ul>
                 <p class="camera-note">Perfetta per coppie, viaggiatori business, o chi vuole dormire tranquillo e lavorare di giorno.</p>
             </div>
-            
+
             <div class="camera-card">
                 <div class="camera-icon">👨‍👩‍👧‍👦</div>
                 <h3>Camera 2: La Camera Familiare</h3>
-                
-                <!-- Camera 2 Photos -->
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 20px 0;">
-                    <img src="images/camera-2-familiare.jpg" alt="Camera 2 Familiare" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);" loading="lazy">
-                    <img src="images/camera-2-alternative.jpg" alt="Camera 2 Vista Alternativa" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);" loading="lazy">
-                    <img src="images/camera-2-alternative-2.jpg" alt="Camera 2 Vista Alternativa 2" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);" loading="lazy">
+
+                <div class="media-grid media-grid-3">
+                    <img src="images/camera-2-familiare.jpg" alt="Camera 2 Familiare" class="media-img" loading="lazy">
+                    <img src="images/camera-2-alternative.jpg" alt="Camera 2 Vista Alternativa" class="media-img" loading="lazy">
+                    <img src="images/camera-2-alternative-2.jpg" alt="Camera 2 Vista Alternativa 2" class="media-img" loading="lazy">
                 </div>
-                
+
                 <p class="camera-desc">Colorata, accogliente, giocosa. Pensata per le famiglie con spazio generoso.</p>
                 <h4>Dotazioni:</h4>
                 <ul class="amenities-list">
@@ -629,26 +397,25 @@
                     <li>✓ Armadio grande</li>
                     <li>✓ TV a schermo piatto</li>
                     <li>✓ Giocattoli e libri (su richiesta)</li>
-                    <li>✓ Spazio circondato per sicurezza bambini</li>
+                    <li>✓ Spazio circostante per sicurezza bambini</li>
                 </ul>
                 <p class="camera-note"><strong>Su richiesta:</strong> Culla per neonati, seggiolone, libri per bambini, giocattoli</p>
             </div>
-            
+
             <div class="camera-card">
                 <div class="camera-icon">🚿</div>
                 <h3>Bagno: Design e Comfort</h3>
-                
-                <!-- Bagno Photos -->
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0;">
-                    <img src="images/bagno-doccia.jpg" alt="Bagno con Doccia" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);" loading="lazy">
-                    <img src="images/bagno-alternative.jpg" alt="Bagno Vista Alternativa" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);" loading="lazy">
+
+                <div class="media-grid media-grid-2">
+                    <img src="images/bagno-doccia.jpg" alt="Bagno con Doccia" class="media-img" loading="lazy">
+                    <img src="images/bagno-alternative.jpg" alt="Bagno Vista Alternativa" class="media-img" loading="lazy">
                 </div>
-                
+
                 <p class="camera-desc">Un bagno pensato per il benessere. Moderno, spazioso, completamente rinnovato.</p>
                 <h4>Dotazioni:</h4>
                 <ul class="amenities-list">
                     <li>✓ Doccia a pioggia grandi dimensioni</li>
-                    <li>✓ Piastrelle di qualita</li>
+                    <li>✓ Piastrelle di qualità</li>
                     <li>✓ Specchio grande</li>
                     <li>✓ Asciugacapelli professionale</li>
                     <li>✓ Prodotti corpo omaggio (shampoo, doccia)</li>
@@ -661,7 +428,88 @@
     </div>
 </section>
 
-<!-- BALCONE HIGHLIGHT -->
+<!-- SERVIZI SECTION -->
+<section id="servizi" class="highlights">
+    <div class="container">
+        <h2>Servizi e Dotazioni</h2>
+
+        <div class="highlights-grid">
+            <div class="highlight-item">
+                <span class="icon">📱</span>
+                <h3>Wi‑Fi 1 Gigabit</h3>
+                <p>Fibra ottica, streaming 4K, smart working perfetto</p>
+            </div>
+
+            <div class="highlight-item">
+                <span class="icon">❄️</span>
+                <h3>Aria Condizionata</h3>
+                <p>In tutte le stanze, condizionatori nuovi e potenti</p>
+            </div>
+
+            <div class="highlight-item">
+                <span class="icon">🍳</span>
+                <h3>Cucina Completa</h3>
+                <p>Piano induzione, Nespresso, lavastoviglie</p>
+            </div>
+
+            <div class="highlight-item">
+                <span class="icon">🔐</span>
+                <h3>Smart Lock 24/7</h3>
+                <p>Accesso autonomo con codice segreto</p>
+            </div>
+
+            <div class="highlight-item">
+                <span class="icon">🎨</span>
+                <h3>Arredamento Premium</h3>
+                <p>Opere d'arte, soffitti alti, pavimenti in marmo</p>
+            </div>
+
+            <div class="highlight-item">
+                <span class="icon">📺</span>
+                <h3>TV 65" Smart</h3>
+                <p>Netflix, Prime Video, intrattenimento</p>
+            </div>
+
+            <div class="highlight-item">
+                <span class="icon">🧺</span>
+                <h3>Lavatrice</h3>
+                <p>Disponibile per soggiorni lunghi</p>
+            </div>
+
+            <div class="highlight-item">
+                <span class="icon">🛗</span>
+                <h3>Primo Piano + Ascensore</h3>
+                <p>Niente scale, massima accessibilità</p>
+            </div>
+
+            <div class="highlight-item">
+                <span class="icon">🧴</span>
+                <h3>Set Cortesia</h3>
+                <p>Asciugamani, biancheria, prodotti bagno</p>
+            </div>
+
+            <div class="highlight-item">
+                <span class="icon">🔥</span>
+                <h3>Riscaldamento</h3>
+                <p>Centralizzato per inverno, sempre caldo</p>
+            </div>
+
+            <div class="highlight-item">
+                <span class="icon">🅿️</span>
+                <h3>Parcheggio</h3>
+                <p>Strisce blu in loco (a pagamento)</p>
+            </div>
+
+            <div class="highlight-item">
+                <span class="icon">🧹</span>
+                <h3>Pulizia Profonda</h3>
+                <p>Appartamento sanificato prima di ogni arrivo</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BALCONE HIGHLIGHT (moved after Servizi) -->
 <section class="balcone-section">
     <div class="container">
         <div class="balcone-content">
@@ -672,7 +520,7 @@
                     <img src="images/balcone-panorama.jpg" alt="Balcone Panoramico 40m²" loading="lazy">
                 </div>
                 <div class="balcone-hero-text">
-                    <p class="balcone-intro">40 metri quadri solo per te. Il balcone non e un'aggiunta. E lo spazio piu bello della casa.</p>
+                    <p class="balcone-intro">40 metri quadri solo per te. Il balcone non è un'aggiunta. È lo spazio più bello della casa.</p>
                     <ul class="balcone-hero-list">
                         <li>☀️ Colazione al sole, aria aperta e silenzio.</li>
                         <li>🍷 Aperitivo al tramonto con Roma all'orizzonte.</li>
@@ -680,7 +528,7 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="balcone-grid" style="margin-top: 40px;">
                 <div class="balcone-use" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
                     <span class="icon" style="font-size: 40px;">☀️</span>
@@ -707,98 +555,16 @@
     </div>
 </section>
 
-<!-- SERVIZI SECTION -->
-<section id="servizi" class="highlights">
-    <div class="container">
-        <h2>Servizi e Dotazioni</h2>
-        
-        <div class="highlights-grid">
-            <div class="highlight-item">
-                <span class="icon">📱</span>
-                <h3>Wi-Fi 1 Gigabit</h3>
-                <p>Fibra ottica, streaming 4K, smart working perfetto</p>
-            </div>
-            
-            <div class="highlight-item">
-                <span class="icon">❄️</span>
-                <h3>Aria Condizionata</h3>
-                <p>In tutte le stanze, condizionatori nuovi e potenti</p>
-            </div>
-            
-            <div class="highlight-item">
-                <span class="icon">🍳</span>
-                <h3>Cucina Completa</h3>
-                <p>Piano induzione, Nespresso, lavastoviglie</p>
-            </div>
-            
-            <div class="highlight-item">
-                <span class="icon">🔐</span>
-                <h3>Smart Lock 24/7</h3>
-                <p>Accesso autonomo con codice segreto</p>
-            </div>
-            
-            <div class="highlight-item">
-                <span class="icon">🎨</span>
-                <h3>Arredamento Premium</h3>
-                <p>Opere d'arte, soffitti alti, pavimenti in marmo</p>
-            </div>
-            
-            <div class="highlight-item">
-                <span class="icon">📺</span>
-                <h3>TV 65" Smart</h3>
-                <p>Netflix, Prime Video, intrattenimento</p>
-            </div>
-            
-            <div class="highlight-item">
-                <span class="icon">🧺</span>
-                <h3>Lavatrice</h3>
-                <p>Disponibile per soggiorni lunghi</p>
-            </div>
-            
-            <div class="highlight-item">
-                <span class="icon">🛗</span>
-                <h3>Primo Piano + Ascensore</h3>
-                <p>Niente scale, massima accessibilita</p>
-            </div>
-            
-            <div class="highlight-item">
-                <span class="icon">🧴</span>
-                <h3>Set Cortesia</h3>
-                <p>Asciugamani, biancheria, prodotti bagno</p>
-            </div>
-            
-            <div class="highlight-item">
-                <span class="icon">🔥</span>
-                <h3>Riscaldamento</h3>
-                <p>Centralizzato per inverno, sempre caldo</p>
-            </div>
-            
-            <div class="highlight-item">
-                <span class="icon">🅿️</span>
-                <h3>Parcheggio</h3>
-                <p>Strisce blu in loco (a pagamento)</p>
-            </div>
-            
-            <div class="highlight-item">
-                <span class="icon">🧹</span>
-                <h3>Pulizia Profonda</h3>
-                <p>Appartamento sanificato prima di ogni arrivo</p>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- POSIZIONE SECTION CON GOOGLE MAPS -->
 <section id="posizione" class="posizione-section">
     <div class="container">
         <h2>Posizione Strategica</h2>
-        <p class="section-intro">Casa Fiore e nel punto perfetto: vicino a tutto, lontano dal caos.</p>
-        
-        <!-- Google Maps -->
-        <div style="margin: 40px 0; border-radius: 16px; overflow: hidden; box-shadow: 0 6px 25px rgba(0,0,0,0.15);">
+        <p class="section-intro">Casa Fiore è nel punto perfetto: vicino a tutto, lontano dal caos.</p>
+
+        <div class="map-embed">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2867.845627894741!2d12.593891!3d41.85889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f61b8a1b1b1b1%3A0x1234567890abcdef!2sVia%20IV%20Novembre%2C%2075%2C%2000043%20Ciampino%20RM!5e0!3m2!1sit!2sit!4v1704397200000" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-        
+
         <div class="posizione-grid">
             <div class="posizione-card">
                 <h3>✈️ Aeroporto Ciampino</h3>
@@ -806,7 +572,7 @@
                 <p>5 minuti a piedi o 2 minuti in bus/taxi. Perfetto per arrivi e partenze senza stress.</p>
                 <p><strong>Ciampino AirLink:</strong> Bus diretto ogni 30 minuti</p>
             </div>
-            
+
             <div class="posizione-card">
                 <h3>🚂 Stazione Ciampino</h3>
                 <p class="distance">120 metri</p>
@@ -818,25 +584,25 @@
                     <li>• Trastevere (30 minuti)</li>
                 </ul>
             </div>
-            
+
             <div class="posizione-card">
                 <h3>🏛️ Centro Roma</h3>
                 <p class="distance">15 km</p>
                 <p>20-25 minuti in treno. Puoi visitare Roma senza auto, senza parcheggio, senza stress.</p>
             </div>
-            
+
             <div class="posizione-card">
                 <h3>🏰 Castelli Romani</h3>
                 <p class="distance">10-15 km</p>
                 <p>Frascati, Grottaferrata, Castel Gandolfo: 15-20 minuti in auto o bus locale.</p>
             </div>
-            
+
             <div class="posizione-card">
                 <h3>🍕 Ristoranti e Bar</h3>
                 <p class="distance">200-500 metri</p>
                 <p>Piazza della Pace a 5 minuti a piedi. Bar, ristoranti, pizzerie, supermercati.</p>
             </div>
-            
+
             <div class="posizione-card">
                 <h3>🛒 Supermercati</h3>
                 <p class="distance">300 metri</p>
@@ -851,38 +617,38 @@
     <div class="container">
         <h2>Ospiti Dicono di Noi</h2>
         <p class="reviews-rating">⭐⭐⭐⭐⭐ 4.8/5 su Booking (12 Recensioni)</p>
-        
+
         <div class="reviews-grid">
             <div class="review-card">
                 <div class="review-stars">⭐⭐⭐⭐⭐</div>
                 <p class="review-text">"Bellissima, pulita, accogliente. Esattamente come nelle foto. Giulia disponibilissima e gentile."</p>
                 <p class="review-author">— Marco M., Gennaio 2025</p>
             </div>
-            
+
             <div class="review-card">
                 <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                <p class="review-text">"Perfetto per Roma, vicino tutto. La stazione e a pochi passi e il balcone e fantastico!"</p>
+                <p class="review-text">"Perfetto per Roma, vicino tutto. La stazione è a pochi passi e il balcone è fantastico!"</p>
                 <p class="review-author">— Francesca R., Dicembre 2025</p>
             </div>
-            
+
             <div class="review-card">
                 <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                <p class="review-text">"Host fantastica, posto speciale. Wi-Fi perfetto per smart working. Torneremo sicuramente."</p>
+                <p class="review-text">"Host fantastica, posto speciale. Wi‑Fi perfetto per smart working. Torneremo sicuramente."</p>
                 <p class="review-author">— Giovanni P., Novembre 2025</p>
             </div>
-            
+
             <div class="review-card">
                 <div class="review-stars">⭐⭐⭐⭐⭐</div>
                 <p class="review-text">"Casa stupenda con un balcone enorme. Perfetta per famiglie. Bambini hanno adorato!"</p>
                 <p class="review-author">— Laura B., Settembre 2025</p>
             </div>
-            
+
             <div class="review-card">
                 <div class="review-stars">⭐⭐⭐⭐⭐</div>
                 <p class="review-text">"Comoda per l'aeroporto, ma anche tranquilla. Cucina super attrezzata, davvero top."</p>
                 <p class="review-author">— Stefano C., Agosto 2025</p>
             </div>
-            
+
             <div class="review-card">
                 <div class="review-stars">⭐⭐⭐⭐⭐</div>
                 <p class="review-text">"Spazioso, pulito, elegante. I quadri sono bellissimi. Ci siamo sentiti come a casa."</p>
@@ -893,40 +659,40 @@
 </section>
 
 <!-- BOOKING CTA SECTION -->
-<section class="booking-cta">
+<section id="prenota" class="booking-cta">
     <div class="container">
         <h2>Inizia il Tuo Soggiorno</h2>
-        <p>Scegli il canale che preferisci. Stessi prezzi, massima comodita.</p>
-        
+        <p>Scegli il canale che preferisci. Stessi prezzi, massima comodità.</p>
+
         <div class="booking-buttons">
             <a href="https://www.booking.com/hotel/it/casa-vacanze-fiore-ciampino-rome-108-sqm-6-sleeps.it.html" 
-               target="_blank" class="booking-card">
+               target="_blank" rel="noopener" class="booking-card">
                 <h3>🏨 Booking.com</h3>
-                <p>Vedi disponibilita e prezzi in tempo reale, pagamento sicuro, recensioni verificate.</p>
+                <p>Vedi disponibilità e prezzi in tempo reale, pagamento sicuro, recensioni verificate.</p>
                 <span class="arrow">→</span>
             </a>
-            
+
             <a href="https://www.airbnb.it/rooms/1408730200025267483" 
-               target="_blank" class="booking-card">
+               target="_blank" rel="noopener" class="booking-card">
                 <h3>🏠 Airbnb</h3>
                 <p>Comunicazione diretta con Giulia, recensioni Airbnb, protezione ospite.</p>
                 <span class="arrow">→</span>
             </a>
-            
+
             <a href="https://www.vrbo.com/it-it/affitto-vacanze/p11860959" 
-               target="_blank" class="booking-card">
+               target="_blank" rel="noopener" class="booking-card">
                 <h3>🏡 VRBO (Expedia)</h3>
-                <p>Prenotazione semplice, supporto Expedia, pagamento trustato.</p>
+                <p>Prenotazione semplice, supporto Expedia, pagamento affidabile.</p>
                 <span class="arrow">→</span>
             </a>
         </div>
-        
+
         <div class="direct-booking">
             <p><strong>💌 PRENOTAZIONE DIRETTA (SCONTO POSSIBILE)</strong></p>
             <p>Contattami per special offers su soggiorni lunghi (7+ notti)</p>
-            <a href="#contatti" class="btn btn-secondary">📧 Chiedi Disponibilita</a>
+            <a href="#contatti" class="btn btn-secondary">📧 Chiedi disponibilità</a>
         </div>
-        
+
         <div class="booking-info">
             <p>✅ Cancellazione gratuita fino a 5 giorni prima • ✅ Pagamento sicuro • ✅ Self check-in 24/7</p>
         </div>
@@ -938,7 +704,7 @@
     <div class="container">
         <h2>Contatti</h2>
         <p class="section-intro">Hai domande? Scrivimi direttamente!</p>
-        
+
         <div class="contatti-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 600px; margin: 0 auto;">
             <div class="contatto-card">
                 <span class="icon">📧</span>
@@ -946,7 +712,7 @@
                 <p><a href="mailto:casafioreciampino@gmail.com">casafioreciampino@gmail.com</a></p>
                 <p class="note">Rispondo entro 24h</p>
             </div>
-            
+
             <div class="contatto-card">
                 <span class="icon">📍</span>
                 <h3>Indirizzo</h3>
@@ -965,7 +731,7 @@
                 <p>Elegante appartamento a Ciampino, Roma</p>
                 <p class="address">Via IV Novembre, 75<br>00043 Ciampino, Italia</p>
             </div>
-            
+
             <div class="footer-section">
                 <h4>Link Rapidi</h4>
                 <ul>
@@ -974,96 +740,42 @@
                     <li><a href="#servizi">Servizi</a></li>
                     <li><a href="#posizione">Posizione</a></li>
                     <li><a href="#recensioni">Recensioni</a></li>
+                    <li><a href="#prenota">Prenota</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-section">
                 <h4>Contatti</h4>
                 <p>📧 <a href="mailto:casafioreciampino@gmail.com">casafioreciampino@gmail.com</a></p>
-                <p>📍 <a href="https://goo.gl/maps/ciampino" target="_blank">Vedi Mappa</a></p>
+                <p>📍 <a href="https://goo.gl/maps/ciampino" target="_blank" rel="noopener">Vedi Mappa</a></p>
             </div>
-            
+
             <div class="footer-section">
                 <h4>Prenota Su</h4>
                 <p>
-                    <a href="https://www.booking.com/hotel/it/casa-vacanze-fiore-ciampino-rome-108-sqm-6-sleeps.it.html" target="_blank">Booking.com</a><br>
-                    <a href="https://www.airbnb.it/rooms/1408730200025267483" target="_blank">Airbnb</a><br>
-                    <a href="https://www.vrbo.com/it-it/affitto-vacanze/p11860959" target="_blank">VRBO</a>
+                    <a href="https://www.booking.com/hotel/it/casa-vacanze-fiore-ciampino-rome-108-sqm-6-sleeps.it.html" target="_blank" rel="noopener">Booking.com</a><br>
+                    <a href="https://www.airbnb.it/rooms/1408730200025267483" target="_blank" rel="noopener">Airbnb</a><br>
+                    <a href="https://www.vrbo.com/it-it/affitto-vacanze/p11860959" target="_blank" rel="noopener">VRBO</a>
                 </p>
             </div>
         </div>
-        
+
         <div class="footer-bottom">
             <p>&copy; 2025 Casa Vacanze Fiore Ciampino. Tutti i diritti riservati.</p>
             <p>
-                <a href="/privacy.html">Privacy Policy</a> | 
+                <a href="/privacy.html">Privacy Policy</a> |
                 <a href="/cookie.html">Cookie Policy</a>
             </p>
         </div>
     </div>
 </footer>
 
+<!-- Mobile sticky booking bar (Booking/Airbnb only) -->
+<div class="sticky-booking" aria-label="Prenotazione rapida">
+    <a class="sticky-booking-btn sticky-booking-booking" href="https://www.booking.com/hotel/it/casa-vacanze-fiore-ciampino-rome-108-sqm-6-sleeps.it.html" target="_blank" rel="noopener">Booking</a>
+    <a class="sticky-booking-btn sticky-booking-airbnb" href="https://www.airbnb.it/rooms/1408730200025267483" target="_blank" rel="noopener">Airbnb</a>
+</div>
+
 <script src="js/main.js"></script>
-<script>
-    // CAROUSEL FUNCTIONALITY
-    let currentSlide = 0;
-    const totalSlides = 17;
-    let autoplayTimeout;
-
-    function showSlide(n) {
-        const items = document.querySelectorAll('.carousel-item');
-        items.forEach(item => item.classList.remove('active'));
-        if (n >= totalSlides) currentSlide = 0;
-        if (n < 0) currentSlide = totalSlides - 1;
-        items[currentSlide].classList.add('active');
-        updateDots();
-        updateCounter();
-        resetAutoplay();
-    }
-
-    function moveCarousel(n) {
-        currentSlide += n;
-        showSlide(currentSlide);
-    }
-
-    function updateDots() {
-        const dotsContainer = document.getElementById('carouselDots');
-        if (dotsContainer.children.length === 0) {
-            for (let i = 0; i < totalSlides; i++) {
-                const dot = document.createElement('button');
-                dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-                dot.onclick = () => { currentSlide = i; showSlide(currentSlide); };
-                dotsContainer.appendChild(dot);
-            }
-        }
-        const dots = document.querySelectorAll('.carousel-dot');
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentSlide);
-        });
-    }
-
-    function updateCounter() {
-        document.getElementById('currentSlide').textContent = currentSlide + 1;
-    }
-
-    function startAutoplay() {
-        autoplayTimeout = setInterval(() => {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            showSlide(currentSlide);
-        }, 5000);
-    }
-
-    function resetAutoplay() {
-        clearInterval(autoplayTimeout);
-        startAutoplay();
-    }
-
-    // Initialize
-    document.addEventListener('DOMContentLoaded', () => {
-        showSlide(0);
-        updateDots();
-        startAutoplay();
-    });
-</script>
 </body>
 </html>
