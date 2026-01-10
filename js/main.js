@@ -173,6 +173,9 @@ const initLegalModal = () => {
         modal.classList.add('is-open');
         modal.setAttribute('aria-hidden', 'false');
         document.body.classList.add('modal-open');
+
+        const closeBtn = modal.querySelector('[data-legal-close]');
+        if (closeBtn) closeBtn.focus();
     };
 
     modal.querySelectorAll('[data-legal-close]').forEach(el => {
@@ -200,9 +203,19 @@ const initLegalModal = () => {
 
             const html = await res.text();
             const doc = new DOMParser().parseFromString(html, 'text/html');
-            const main = doc.querySelector('main');
 
-            contentEl.innerHTML = main ? main.innerHTML : html;
+            const node = doc.querySelector('main') || doc.querySelector('.legal-page') || doc.querySelector('.legal-card');
+            if (!node) throw new Error('Legal content not found');
+
+            const clone = node.cloneNode(true);
+            clone.querySelectorAll('a[href="index.html"], a[href="./index.html"], a[href="/index.html"], a[href="/"]').forEach(a => {
+                const p = a.closest('p');
+                if (p) p.remove();
+                else a.remove();
+            });
+
+            // Keep classes/styles by injecting the wrapper element, not only its innerHTML
+            contentEl.innerHTML = clone.outerHTML;
             openModal();
         } catch (err) {
             // Fallback: open full page if something goes wrong
