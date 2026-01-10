@@ -1195,6 +1195,7 @@ body.modal-open {
 }
 
 .review-card {
+    position: relative;
     background-color: var(--bg-white);
     padding: var(--spacing-lg);
     border-radius: var(--radius-md);
@@ -1210,13 +1211,34 @@ body.modal-open {
 
 .review-stars {
     font-size: var(--font-size-lg);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 8px;
+}
+
+/* Nuovo: titolo recensione (più leggibile e “premium”) */
+.review-title {
+    font-family: var(--font-serif);
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 1.35;
+    color: var(--primary-dark);
+    margin: 0 0 10px;
+    letter-spacing: -0.2px;
 }
 
 .review-text {
-    font-style: italic;
     margin-bottom: var(--spacing-sm);
     color: var(--text-dark);
+    line-height: 1.75;
+}
+
+/* Mantieni lo stile “testimonianza” nella griglia principale */
+.reviews-grid .review-text {
+    font-style: italic;
+}
+
+/* Nella sezione sopra-galleria (trust-cta) meglio non italic, più "diretto" */
+.trust-cta-reviews .review-text {
+    font-style: normal;
 }
 
 .review-author {
