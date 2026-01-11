@@ -446,25 +446,33 @@ const initAvailabilityCalendar = () => {
             const dateObj = new Date(year, month, dayNum);
             const iso = toISODateLocal(dateObj);
             const isBooked = booked.has(iso);
+            const isPast = startOfDay(dateObj) < today;
 
             cell.textContent = String(dayNum);
             cell.dataset.date = iso;
-            cell.setAttribute('aria-label', `${fmtDayLong.format(dateObj)}: ${isBooked ? 'prenotato' : 'libero'}`);
+            cell.setAttribute('aria-label', `${fmtDayLong.format(dateObj)}: ${isBooked ? 'prenotato' : 'libero'}${isPast ? ', giorno passato' : ''}`);
 
             cell.classList.add(isBooked ? 'is-booked' : 'is-available');
+
+            if (isPast) {
+                cell.classList.add('is-past');
+                cell.disabled = true;
+            }
 
             if (iso === toISODateLocal(today)) cell.classList.add('is-today');
             if (iso === selectedISO) cell.classList.add('is-selected');
 
-            cell.addEventListener('click', () => {
-                selectedISO = iso;
+            if (!isPast) {
+                cell.addEventListener('click', () => {
+                    selectedISO = iso;
 
-                // Update selection UI without re-rendering everything
-                root.querySelectorAll('.cal-day.is-selected').forEach(btn => btn.classList.remove('is-selected'));
-                cell.classList.add('is-selected');
+                    // Update selection UI without re-rendering everything
+                    root.querySelectorAll('.cal-day.is-selected').forEach(btn => btn.classList.remove('is-selected'));
+                    cell.classList.add('is-selected');
 
-                setStatus(dateObj, isBooked);
-            });
+                    setStatus(dateObj, isBooked);
+                });
+            }
 
             gridEl.appendChild(cell);
         }
