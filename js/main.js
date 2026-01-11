@@ -70,7 +70,7 @@ window.addEventListener('scroll', () => {
 
 // Animation on scroll
 const animateOnScroll = () => {
-    const elements = document.querySelectorAll('.usp-card, .highlight-item, .review-card, .booking-card');
+    const elements = document.querySelectorAll('.usp-card, .highlight-item, .review-card, .booking-card, .booking-card-calendar');
 
     if (!('IntersectionObserver' in window)) {
         elements.forEach(el => {
@@ -326,6 +326,168 @@ const initDirectBookingForm = () => {
     });
 };
 
+// Availability calendar (UI only; demo data)
+const initAvailabilityCalendar = () => {
+    const root = document.getElementById('availabilityCalendar');
+    if (!root) return;
+
+    // Mark as enhanced so CSS can style the full widget
+    root.classList.add('availability-calendar--enhanced');
+
+    // ---- Demo booked dates (will be replaced later by iCal sync) ----
+    const pad2 = (n) => String(n).padStart(2, '0');
+    const toISODateLocal = (d) => `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`;
+    const startOfDay = (d) => new Date(d.getFullYear(), d.getMonth(), d.getDate());
+    const addDays = (d, days) => new Date(d.getFullYear(), d.getMonth(), d.getDate() + days);
+
+    const booked = new Set();
+
+    const addRange = (start, end) => {
+        let cur = startOfDay(start);
+        const last = startOfDay(end);
+        while (cur <= last) {
+            booked.add(toISODateLocal(cur));
+            cur = addDays(cur, 1);
+        }
+    };
+
+    const today = startOfDay(new Date());
+    addRange(addDays(today, 2), addDays(today, 5));
+    addRange(addDays(today, 12), addDays(today, 14));
+    addRange(new Date(today.getFullYear(), today.getMonth() + 1, 10), new Date(today.getFullYear(), today.getMonth() + 1, 13));
+
+    // ---- DOM scaffold ----
+    root.innerHTML = `
+        <div class="cal-header">
+            <button type="button" class="cal-nav" data-dir="-1" aria-label="Mese precedente">‹</button>
+            <div class="cal-title" aria-live="polite"></div>
+            <button type="button" class="cal-nav" data-dir="1" aria-label="Mese successivo">›</button>
+        </div>
+        <div class="cal-weekdays" aria-hidden="true">
+            <div class="cal-weekday">Lun</div>
+            <div class="cal-weekday">Mar</div>
+            <div class="cal-weekday">Mer</div>
+            <div class="cal-weekday">Gio</div>
+            <div class="cal-weekday">Ven</div>
+            <div class="cal-weekday">Sab</div>
+            <div class="cal-weekday">Dom</div>
+        </div>
+        <div class="cal-grid" role="grid" aria-label="Calendario disponibilità"></div>
+        <div class="cal-legend" aria-label="Legenda disponibilità">
+            <span class="legend-item"><span class="legend-swatch is-available" aria-hidden="true"></span> Libero</span>
+            <span class="legend-item"><span class="legend-swatch is-booked" aria-hidden="true"></span> Prenotato</span>
+        </div>
+        <div class="cal-status" aria-live="polite">Seleziona un giorno per vedere lo stato.</div>
+    `;
+
+    const titleEl = root.querySelector('.cal-title');
+    const gridEl = root.querySelector('.cal-grid');
+    const statusEl = root.querySelector('.cal-status');
+
+    const fmtMonth = new Intl.DateTimeFormat('it-IT', { month: 'long', year: 'numeric' });
+    const fmtDayLong = new Intl.DateTimeFormat('it-IT', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+
+    let view = new Date(today.getFullYear(), today.getMonth(), 1);
+    let selectedISO = '';
+
+    const getDayIndexMonFirst = (date) => (date.getDay() + 6) % 7; // 0=Mon ... 6=Sun
+
+    const setStatus = (dateObj, isBooked) => {
+        const labelDate = fmtDayLong.format(dateObj);
+        if (isBooked) {
+            statusEl.innerHTML = `<strong>${labelDate}</strong>: <strong>Prenotato</strong> (rosso).`;
+        } else {
+            statusEl.innerHTML = `<strong>${labelDate}</strong>: <strong>Libero</strong> (verde).`;
+        }
+    };
+
+    const render = () => {
+        if (!titleEl || !gridEl) return;
+
+        titleEl.textContent = fmtMonth.format(view);
+        gridEl.innerHTML = '';
+
+        const year = view.getFullYear();
+        const month = view.getMonth();
+
+        const first = new Date(year, month, 1);
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+        const lead = getDayIndexMonFirst(first);
+        const totalCells = 42; // 6 weeks
+
+        const prevMonthDays = new Date(year, month, 0).getDate();
+
+        for (let i = 0; i < totalCells; i++) {
+            const cell = document.createElement('button');
+            cell.type = 'button';
+            cell.className = 'cal-day';
+
+            const dayNum = i - lead + 1;
+
+            // Outside days (previous / next month)
+            if (dayNum < 1) {
+                cell.textContent = String(prevMonthDays + dayNum);
+                cell.classList.add('is-outside');
+                cell.disabled = true;
+                gridEl.appendChild(cell);
+                continue;
+            }
+
+            if (dayNum > daysInMonth) {
+                cell.textContent = String(dayNum - daysInMonth);
+                cell.classList.add('is-outside');
+                cell.disabled = true;
+                gridEl.appendChild(cell);
+                continue;
+            }
+
+            // In-month day
+            const dateObj = new Date(year, month, dayNum);
+            const iso = toISODateLocal(dateObj);
+            const isBooked = booked.has(iso);
+
+            cell.textContent = String(dayNum);
+            cell.dataset.date = iso;
+            cell.setAttribute('aria-label', `${fmtDayLong.format(dateObj)}: ${isBooked ? 'prenotato' : 'libero'}`);
+
+            cell.classList.add(isBooked ? 'is-booked' : 'is-available');
+
+            if (iso === toISODateLocal(today)) cell.classList.add('is-today');
+            if (iso === selectedISO) cell.classList.add('is-selected');
+
+            cell.addEventListener('click', () => {
+                selectedISO = iso;
+
+                // Update selection UI without re-rendering everything
+                root.querySelectorAll('.cal-day.is-selected').forEach(btn => btn.classList.remove('is-selected'));
+                cell.classList.add('is-selected');
+
+                setStatus(dateObj, isBooked);
+            });
+
+            gridEl.appendChild(cell);
+        }
+
+        // If selection is on a different month, reset to neutral message
+        const selectedInView = selectedISO && selectedISO.startsWith(`${year}-${pad2(month + 1)}-`);
+        if (!selectedInView) {
+            statusEl.textContent = 'Seleziona un giorno per vedere lo stato.';
+            selectedISO = '';
+        }
+    };
+
+    root.querySelectorAll('.cal-nav').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const dir = Number(btn.getAttribute('data-dir') || '0');
+            view = new Date(view.getFullYear(), view.getMonth() + dir, 1);
+            render();
+        });
+    });
+
+    render();
+};
+
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     initHomeScroll();
@@ -333,4 +495,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initCarousel();
     initLegalModal();
     initDirectBookingForm();
+    initAvailabilityCalendar();
 });
