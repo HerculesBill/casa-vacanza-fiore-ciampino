@@ -238,9 +238,80 @@ const initLegalModal = () => {
     });
 };
 
+// Direct booking form (mailto)
+const initDirectBookingForm = () => {
+    const form = document.getElementById('directBookingForm');
+    const errorEl = document.getElementById('directBookingError');
+
+    if (!form) return;
+
+    const setError = (msg) => {
+        if (errorEl) errorEl.textContent = msg;
+    };
+
+    const clearError = () => setError('');
+
+    const fmt = (v) => (v || '').toString().trim();
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        clearError();
+
+        const nome = fmt(document.getElementById('dbNome')?.value);
+        const cognome = fmt(document.getElementById('dbCognome')?.value);
+        const email = fmt(document.getElementById('dbEmail')?.value);
+        const telefono = fmt(document.getElementById('dbTelefono')?.value);
+        const ospiti = fmt(document.getElementById('dbOspiti')?.value);
+        const arrivo = fmt(document.getElementById('dbArrivo')?.value);
+        const partenza = fmt(document.getElementById('dbPartenza')?.value);
+        const messaggio = fmt(document.getElementById('dbMessaggio')?.value);
+        const privacyOk = document.getElementById('dbPrivacy')?.checked;
+
+        if (!nome || !cognome || !email || !telefono || !ospiti || !arrivo || !partenza) {
+            setError('Compila tutti i campi obbligatori (Nome, Cognome, Email, Telefono, Ospiti, Arrivo, Partenza).');
+            return;
+        }
+
+        if (!privacyOk) {
+            setError('Per inviare la richiesta, conferma di aver letto la Privacy Policy.');
+            return;
+        }
+
+        if (partenza <= arrivo) {
+            setError('La data di partenza deve essere successiva alla data di arrivo.');
+            return;
+        }
+
+        const subject = `Richiesta prenotazione - ${nome} ${cognome} (${arrivo} → ${partenza})`;
+
+        const bodyLines = [
+            'Richiesta di prenotazione (dal sito Casa Vacanze Fiore Ciampino)',
+            '',
+            `Nome: ${nome}`,
+            `Cognome: ${cognome}`,
+            `Email: ${email}`,
+            `Telefono: ${telefono}`,
+            `Numero ospiti: ${ospiti}`,
+            `Data arrivo: ${arrivo}`,
+            `Data partenza: ${partenza}`,
+        ];
+
+        if (messaggio) {
+            bodyLines.push('', 'Messaggio:', messaggio);
+        }
+
+        bodyLines.push('', '---', 'Inviato tramite form (mailto).');
+
+        const mailto = `mailto:casafioreciampino@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+
+        window.location.href = mailto;
+    });
+};
+
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     animateOnScroll();
     initCarousel();
     initLegalModal();
+    initDirectBookingForm();
 });

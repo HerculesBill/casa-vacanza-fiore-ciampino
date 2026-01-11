@@ -722,8 +722,63 @@
 
             <div class="booking-card booking-card-direct">
                 <h3>💌 Prenotazione diretta</h3>
-                <p>Scrivi via email e ricevi risposta entro 24h. Sconto possibile per soggiorni lunghi (7+ notti).</p>
-                <a href="#contatti" class="btn btn-primary btn-small">📧 Chiedi disponibilità</a>
+                <p>Compila i dati: si aprirà la tua app email con il messaggio già pronto. Premi “Invia” per inviarci la richiesta.</p>
+
+                <form class="direct-booking-form" id="directBookingForm" novalidate>
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <label for="dbNome">Nome</label>
+                            <input id="dbNome" name="nome" type="text" autocomplete="given-name" required />
+                        </div>
+                        <div class="form-field">
+                            <label for="dbCognome">Cognome</label>
+                            <input id="dbCognome" name="cognome" type="text" autocomplete="family-name" required />
+                        </div>
+                        <div class="form-field">
+                            <label for="dbEmail">Email</label>
+                            <input id="dbEmail" name="email" type="email" autocomplete="email" required />
+                        </div>
+                        <div class="form-field">
+                            <label for="dbTelefono">Telefono</label>
+                            <input id="dbTelefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" required />
+                        </div>
+                        <div class="form-field">
+                            <label for="dbOspiti">Numero ospiti</label>
+                            <select id="dbOspiti" name="ospiti" required>
+                                <option value="" selected disabled>Seleziona</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label for="dbArrivo">Data arrivo</label>
+                            <input id="dbArrivo" name="arrivo" type="date" required />
+                        </div>
+                        <div class="form-field">
+                            <label for="dbPartenza">Data partenza</label>
+                            <input id="dbPartenza" name="partenza" type="date" required />
+                        </div>
+                        <div class="form-field form-field-full">
+                            <label for="dbMessaggio">Messaggio (opzionale)</label>
+                            <textarea id="dbMessaggio" name="messaggio" rows="3" placeholder="Es. orario di arrivo, richieste particolari..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-consent">
+                        <label class="consent-row">
+                            <input id="dbPrivacy" type="checkbox" required />
+                            <span>Ho letto la <a href="privacy.html" class="legal-link" data-legal="privacy.html">Privacy Policy</a>.</span>
+                        </label>
+                        <p class="form-note">Nota: l’invio avviene tramite la tua app email (Gmail, Mail, Outlook). Se non hai un’app email configurata, puoi scriverci a <a href="mailto:casafioreciampino@gmail.com">casafioreciampino@gmail.com</a>.</p>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-small form-submit">Invia richiesta di prenotazione</button>
+                    <p class="form-error" id="directBookingError" aria-live="polite"></p>
+                </form>
             </div>
         </div>
 
