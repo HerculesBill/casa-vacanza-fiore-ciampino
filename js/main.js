@@ -1,3 +1,104 @@
+// Site language (simple detection)
+const SITE_LANG = window.location.pathname.includes('/en/') ? 'en' : 'it';
+const SITE_LOCALE = SITE_LANG === 'en' ? 'en-GB' : 'it-IT';
+
+const I18N = {
+    it: {
+        carouselDotAria: (n) => `Vai alla foto ${n}`,
+        legalLoading: 'Caricamento…',
+        legalLabels: {
+            privacy: 'Privacy Policy',
+            rules: 'Regolamento',
+            cookie: 'Cookie Policy'
+        },
+        direct: {
+            required: 'Compila tutti i campi obbligatori (Nome, Cognome, Email, Telefono, Ospiti, Arrivo, Partenza).',
+            privacy: 'Per inviare la richiesta, conferma di aver letto e accettato Privacy Policy e Regolamento.',
+            dateOrder: 'La data di partenza deve essere successiva alla data di arrivo.',
+            subject: (nome, cognome, arrivo, partenza) => `Richiesta prenotazione - ${nome} ${cognome} (${arrivo} → ${partenza})`,
+            bodyHeader: 'Richiesta di prenotazione (dal sito Casa Vacanze Fiore Ciampino)',
+            fields: {
+                firstName: 'Nome',
+                lastName: 'Cognome',
+                email: 'Email',
+                phone: 'Telefono',
+                guests: 'Numero ospiti',
+                checkin: 'Data arrivo',
+                checkout: 'Data partenza',
+                message: 'Messaggio'
+            },
+            sentVia: 'Inviato tramite form (mailto).'
+        },
+        calendar: {
+            prevMonth: 'Mese precedente',
+            nextMonth: 'Mese successivo',
+            weekdays: ['Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab', 'Dom'],
+            gridLabel: 'Calendario disponibilità',
+            legendLabel: 'Legenda disponibilità',
+            free: 'Libero',
+            booked: 'Prenotato',
+            loading: 'Caricamento disponibilità…',
+            selectDay: 'Seleziona un giorno per vedere lo stato.',
+            updatedShort: 'agg.',
+            pastDay: 'giorno passato',
+            notSelectable: 'non selezionabile',
+            availabilityUnavailable: 'Disponibilità non disponibile al momento. Riprova tra poco.',
+            statusBooked: (d) => `<strong>${d}</strong>: <strong>Prenotato</strong> (rosso).`,
+            statusFree: (d) => `<strong>${d}</strong>: <strong>Libero</strong> (verde).`,
+            ariaBooked: 'prenotato',
+            ariaFree: 'libero'
+        }
+    },
+    en: {
+        carouselDotAria: (n) => `Go to photo ${n}`,
+        legalLoading: 'Loading…',
+        legalLabels: {
+            privacy: 'Privacy Policy',
+            rules: 'House Rules',
+            cookie: 'Cookie Policy'
+        },
+        direct: {
+            required: 'Please fill in all required fields (First name, Last name, Email, Phone, Guests, Check‑in, Check‑out).',
+            privacy: 'To send the request, please confirm you have read and accept the Privacy Policy and House Rules.',
+            dateOrder: 'Check‑out date must be after the check‑in date.',
+            subject: (nome, cognome, arrivo, partenza) => `Booking enquiry - ${nome} ${cognome} (${arrivo} → ${partenza})`,
+            bodyHeader: 'Booking enquiry (from Casa Fiore Ciampino website)',
+            fields: {
+                firstName: 'First name',
+                lastName: 'Last name',
+                email: 'Email',
+                phone: 'Phone',
+                guests: 'Guests',
+                checkin: 'Check‑in',
+                checkout: 'Check‑out',
+                message: 'Message'
+            },
+            sentVia: 'Sent via website form (mailto).'
+        },
+        calendar: {
+            prevMonth: 'Previous month',
+            nextMonth: 'Next month',
+            weekdays: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            gridLabel: 'Availability calendar',
+            legendLabel: 'Availability legend',
+            free: 'Available',
+            booked: 'Booked',
+            loading: 'Loading availability…',
+            selectDay: 'Select a day to see availability.',
+            updatedShort: 'updated',
+            pastDay: 'past day',
+            notSelectable: 'not selectable',
+            availabilityUnavailable: 'Availability is temporarily unavailable. Please try again shortly.',
+            statusBooked: (d) => `<strong>${d}</strong>: <strong>Booked</strong> (red).`,
+            statusFree: (d) => `<strong>${d}</strong>: <strong>Available</strong> (green).`,
+            ariaBooked: 'booked',
+            ariaFree: 'available'
+        }
+    }
+};
+
+const t = I18N[SITE_LANG];
+
 // Mobile Menu Toggle
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
@@ -117,7 +218,7 @@ const initCarousel = () => {
             for (let i = 0; i < totalSlides; i++) {
                 const dot = document.createElement('button');
                 dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-                dot.setAttribute('aria-label', `Vai alla foto ${i + 1}`);
+                dot.setAttribute('aria-label', t.carouselDotAria(i + 1));
                 dot.onclick = () => {
                     currentSlide = i;
                     showSlide(currentSlide);
@@ -206,7 +307,7 @@ const initLegalModal = () => {
     });
 
     const setLoading = () => {
-        contentEl.innerHTML = '<p>Caricamento…</p>';
+        contentEl.innerHTML = `<p>${t.legalLoading}</p>`;
     };
 
     const loadLegal = async (url, label) => {
@@ -249,7 +350,7 @@ const initLegalModal = () => {
 
             const isPrivacy = url.toLowerCase().includes('privacy');
             const isRegolamento = url.toLowerCase().includes('regolamento');
-            const label = isPrivacy ? 'Privacy Policy' : (isRegolamento ? 'Regolamento' : 'Cookie Policy');
+            const label = isPrivacy ? t.legalLabels.privacy : (isRegolamento ? t.legalLabels.rules : t.legalLabels.cookie);
 
             loadLegal(url, label);
         });
@@ -286,39 +387,39 @@ const initDirectBookingForm = () => {
         const privacyOk = document.getElementById('dbPrivacy')?.checked;
 
         if (!nome || !cognome || !email || !telefono || !ospiti || !arrivo || !partenza) {
-            setError('Compila tutti i campi obbligatori (Nome, Cognome, Email, Telefono, Ospiti, Arrivo, Partenza).');
+            setError(t.direct.required);
             return;
         }
 
         if (!privacyOk) {
-            setError('Per inviare la richiesta, conferma di aver letto e accettato Privacy Policy e Regolamento.');
+            setError(t.direct.privacy);
             return;
         }
 
         if (partenza <= arrivo) {
-            setError('La data di partenza deve essere successiva alla data di arrivo.');
+            setError(t.direct.dateOrder);
             return;
         }
 
-        const subject = `Richiesta prenotazione - ${nome} ${cognome} (${arrivo} → ${partenza})`;
+        const subject = t.direct.subject(nome, cognome, arrivo, partenza);
 
         const bodyLines = [
-            'Richiesta di prenotazione (dal sito Casa Vacanze Fiore Ciampino)',
+            t.direct.bodyHeader,
             '',
-            `Nome: ${nome}`,
-            `Cognome: ${cognome}`,
-            `Email: ${email}`,
-            `Telefono: ${telefono}`,
-            `Numero ospiti: ${ospiti}`,
-            `Data arrivo: ${arrivo}`,
-            `Data partenza: ${partenza}`,
+            `${t.direct.fields.firstName}: ${nome}`,
+            `${t.direct.fields.lastName}: ${cognome}`,
+            `${t.direct.fields.email}: ${email}`,
+            `${t.direct.fields.phone}: ${telefono}`,
+            `${t.direct.fields.guests}: ${ospiti}`,
+            `${t.direct.fields.checkin}: ${arrivo}`,
+            `${t.direct.fields.checkout}: ${partenza}`,
         ];
 
         if (messaggio) {
-            bodyLines.push('', 'Messaggio:', messaggio);
+            bodyLines.push('', `${t.direct.fields.message}:`, messaggio);
         }
 
-        bodyLines.push('', '---', 'Inviato tramite form (mailto).');
+        bodyLines.push('', '---', t.direct.sentVia);
 
         const mailto = `mailto:casafioreciampino@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
 
@@ -346,33 +447,27 @@ const initAvailabilityCalendar = () => {
     // ---- DOM scaffold ----
     root.innerHTML = `
         <div class="cal-header">
-            <button type="button" class="cal-nav" data-dir="-1" aria-label="Mese precedente">‹</button>
+            <button type="button" class="cal-nav" data-dir="-1" aria-label="${t.calendar.prevMonth}">‹</button>
             <div class="cal-title" aria-live="polite"></div>
-            <button type="button" class="cal-nav" data-dir="1" aria-label="Mese successivo">›</button>
+            <button type="button" class="cal-nav" data-dir="1" aria-label="${t.calendar.nextMonth}">›</button>
         </div>
         <div class="cal-weekdays" aria-hidden="true">
-            <div class="cal-weekday">Lun</div>
-            <div class="cal-weekday">Mar</div>
-            <div class="cal-weekday">Mer</div>
-            <div class="cal-weekday">Gio</div>
-            <div class="cal-weekday">Ven</div>
-            <div class="cal-weekday">Sab</div>
-            <div class="cal-weekday">Dom</div>
+            ${t.calendar.weekdays.map(w => `<div class="cal-weekday">${w}</div>`).join('')}
         </div>
-        <div class="cal-grid" role="grid" aria-label="Calendario disponibilità"></div>
-        <div class="cal-legend" aria-label="Legenda disponibilità">
-            <span class="legend-item"><span class="legend-swatch is-available" aria-hidden="true"></span> Libero</span>
-            <span class="legend-item"><span class="legend-swatch is-booked" aria-hidden="true"></span> Prenotato</span>
+        <div class="cal-grid" role="grid" aria-label="${t.calendar.gridLabel}"></div>
+        <div class="cal-legend" aria-label="${t.calendar.legendLabel}">
+            <span class="legend-item"><span class="legend-swatch is-available" aria-hidden="true"></span> ${t.calendar.free}</span>
+            <span class="legend-item"><span class="legend-swatch is-booked" aria-hidden="true"></span> ${t.calendar.booked}</span>
         </div>
-        <div class="cal-status" aria-live="polite">Caricamento disponibilità…</div>
+        <div class="cal-status" aria-live="polite">${t.calendar.loading}</div>
     `;
 
     const titleEl = root.querySelector('.cal-title');
     const gridEl = root.querySelector('.cal-grid');
     const statusEl = root.querySelector('.cal-status');
 
-    const fmtMonth = new Intl.DateTimeFormat('it-IT', { month: 'long', year: 'numeric' });
-    const fmtDayLong = new Intl.DateTimeFormat('it-IT', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+    const fmtMonth = new Intl.DateTimeFormat(SITE_LOCALE, { month: 'long', year: 'numeric' });
+    const fmtDayLong = new Intl.DateTimeFormat(SITE_LOCALE, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
 
     let view = new Date(today.getFullYear(), today.getMonth(), 1);
     let selectedISO = '';
@@ -381,14 +476,11 @@ const initAvailabilityCalendar = () => {
 
     const setStatus = (dateObj, isBooked) => {
         const labelDate = fmtDayLong.format(dateObj);
-        if (isBooked) {
-            statusEl.innerHTML = `<strong>${labelDate}</strong>: <strong>Prenotato</strong> (rosso).`;
-        } else {
-            statusEl.innerHTML = `<strong>${labelDate}</strong>: <strong>Libero</strong> (verde).`;
-        }
+        statusEl.innerHTML = isBooked ? t.calendar.statusBooked(labelDate) : t.calendar.statusFree(labelDate);
 
         if (generatedAt) {
-            statusEl.innerHTML += ` <span style="opacity:.75; font-weight:600;">(agg. ${generatedAt})</span>`;
+            const suffix = SITE_LANG === 'it' ? `(${t.calendar.updatedShort} ${generatedAt})` : `(${t.calendar.updatedShort} ${generatedAt})`;
+            statusEl.innerHTML += ` <span style="opacity:.75; font-weight:600;">${suffix}</span>`;
         }
     };
 
@@ -442,9 +534,16 @@ const initAvailabilityCalendar = () => {
             cell.textContent = String(dayNum);
             cell.dataset.date = iso;
 
-            const ariaParts = [fmtDayLong.format(dateObj), isBooked ? 'prenotato' : 'libero'];
-            if (isPast) ariaParts.push('giorno passato');
-            if (isBooked) ariaParts.push('non selezionabile');
+            const ariaParts = [
+                fmtDayLong.format(dateObj),
+                isBooked ? t.calendar.ariaBooked : t.calendar.ariaFree
+            ];
+
+            if (isPast) ariaParts.push(t.calendar.pastDay);
+            if (isBooked) {
+                ariaParts.push(t.calendar.notSelectable);
+            }
+
             cell.setAttribute('aria-label', ariaParts.join(': ').replace(': :', ': '));
 
             cell.classList.add(isBooked ? 'is-booked' : 'is-available');
@@ -482,7 +581,8 @@ const initAvailabilityCalendar = () => {
         const selectedInView = selectedISO && selectedISO.startsWith(`${year}-${pad2(month + 1)}-`);
         if (!selectedInView) {
             if (statusEl) {
-                statusEl.textContent = generatedAt ? `Seleziona un giorno per vedere lo stato. (agg. ${generatedAt})` : 'Seleziona un giorno per vedere lo stato.';
+                const base = t.calendar.selectDay;
+                statusEl.textContent = generatedAt ? `${base} (${t.calendar.updatedShort} ${generatedAt})` : base;
             }
             selectedISO = '';
         }
@@ -507,7 +607,7 @@ const initAvailabilityCalendar = () => {
             render();
         } catch (e) {
             // Graceful fallback
-            if (statusEl) statusEl.textContent = 'Disponibilità non disponibile al momento. Riprova tra poco.';
+            if (statusEl) statusEl.textContent = t.calendar.availabilityUnavailable;
             render();
         }
     };
