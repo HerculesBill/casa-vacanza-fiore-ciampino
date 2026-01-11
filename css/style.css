@@ -1436,13 +1436,31 @@ body.modal-open {
     background: rgba(255,255,255,0.14);
     color: rgba(255,255,255,0.96);
     padding: 10px 12px;
-    font-size: 14px;
+
+    /* Typography: make typing feel premium + consistent */
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: 0.2px;
+
+    /* iOS / Safari */
+    -webkit-text-size-adjust: 100%;
+
     outline: none;
 }
 
+/* Better placeholder feel */
 .direct-booking-form input::placeholder,
 .direct-booking-form textarea::placeholder {
-    color: rgba(255,255,255,0.70);
+    color: rgba(255,255,255,0.62);
+    font-weight: 400;
+    letter-spacing: 0.15px;
+}
+
+/* Date input rendering on dark glass */
+.direct-booking-form input[type="date"] {
+    color-scheme: light;
 }
 
 .direct-booking-form select option {
