@@ -705,107 +705,103 @@
         <h2>Inizia il Tuo Soggiorno</h2>
         <p>Scegli il canale che preferisci. Stessi prezzi, massima comodità.</p>
 
-        <div class="booking-layout">
-            <div class="booking-col booking-col-left">
-                <a href="https://www.booking.com/hotel/it/casa-vacanze-fiore-ciampino-rome-108-sqm-6-sleeps.it.html" 
-                   target="_blank" rel="noopener" class="booking-card">
-                    <h3>🏨 Booking.com</h3>
-                    <p>Vedi disponibilità e prezzi in tempo reale, pagamento sicuro, recensioni verificate.</p>
-                    <span class="arrow">→</span>
-                </a>
+        <div class="booking-grid">
+            <a href="https://www.booking.com/hotel/it/casa-vacanze-fiore-ciampino-rome-108-sqm-6-sleeps.it.html" 
+               target="_blank" rel="noopener" class="booking-card">
+                <h3>🏨 Booking.com</h3>
+                <p>Vedi disponibilità e prezzi in tempo reale, pagamento sicuro, recensioni verificate.</p>
+                <span class="arrow">→</span>
+            </a>
 
-                <a href="https://www.airbnb.it/rooms/1408730200025267483" 
-                   target="_blank" rel="noopener" class="booking-card">
-                    <h3>🏠 Airbnb</h3>
-                    <p>Comunicazione diretta con Giulia, recensioni Airbnb, protezione ospite.</p>
-                    <span class="arrow">→</span>
-                </a>
+            <a href="https://www.airbnb.it/rooms/1408730200025267483" 
+               target="_blank" rel="noopener" class="booking-card">
+                <h3>🏠 Airbnb</h3>
+                <p>Comunicazione diretta con Giulia, recensioni Airbnb, protezione ospite.</p>
+                <span class="arrow">→</span>
+            </a>
 
-                <div class="booking-card booking-card-direct">
-                    <div class="direct-header">
-                        <div class="direct-header-left">
-                            <h3>💌 Prenotazione diretta</h3>
-                            <p class="direct-subtitle">Richiesta senza impegno: ti rispondiamo entro 24h con conferma e istruzioni.</p>
+            <a href="https://www.vrbo.com/it-it/affitto-vacanze/p11860959" 
+               target="_blank" rel="noopener" class="booking-card">
+                <h3>🏡 VRBO (Expedia)</h3>
+                <p>Prenotazione semplice, supporto Expedia, pagamento affidabile.</p>
+                <span class="arrow">→</span>
+            </a>
+
+            <div class="booking-card booking-card-direct">
+                <div class="direct-header">
+                    <div class="direct-header-left">
+                        <h3>💌 Prenotazione diretta</h3>
+                        <p class="direct-subtitle">Richiesta senza impegno: ti rispondiamo entro 24h con conferma e istruzioni.</p>
+                    </div>
+                    <div class="direct-header-right" aria-label="Vantaggi prenotazione diretta">
+                        <span class="direct-pill">✅ Risposta entro 24h</span>
+                        <span class="direct-pill">🔒 Dati solo per contatto</span>
+                        <span class="direct-pill">🧾 Preventivo gratuito</span>
+                    </div>
+                </div>
+
+                <form class="direct-booking-form" id="directBookingForm" novalidate>
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <label for="dbNome">Nome</label>
+                            <input id="dbNome" name="nome" type="text" autocomplete="given-name" required />
                         </div>
-                        <div class="direct-header-right" aria-label="Vantaggi prenotazione diretta">
-                            <span class="direct-pill">✅ Risposta entro 24h</span>
-                            <span class="direct-pill">🔒 Dati solo per contatto</span>
-                            <span class="direct-pill">🧾 Preventivo gratuito</span>
+                        <div class="form-field">
+                            <label for="dbCognome">Cognome</label>
+                            <input id="dbCognome" name="cognome" type="text" autocomplete="family-name" required />
+                        </div>
+                        <div class="form-field">
+                            <label for="dbEmail">Email</label>
+                            <input id="dbEmail" name="email" type="email" autocomplete="email" required />
+                        </div>
+                        <div class="form-field">
+                            <label for="dbTelefono">Telefono</label>
+                            <input id="dbTelefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" required />
+                        </div>
+                        <div class="form-field">
+                            <label for="dbOspiti">Numero ospiti</label>
+                            <select id="dbOspiti" name="ospiti" required>
+                                <option value="" selected disabled>Seleziona</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label for="dbArrivo">Data arrivo</label>
+                            <input id="dbArrivo" name="arrivo" type="date" required />
+                        </div>
+                        <div class="form-field">
+                            <label for="dbPartenza">Data partenza</label>
+                            <input id="dbPartenza" name="partenza" type="date" required />
+                        </div>
+                        <div class="form-field form-field-full">
+                            <label for="dbMessaggio">Messaggio (opzionale)</label>
+                            <textarea id="dbMessaggio" name="messaggio" rows="2" placeholder="Es. orario di arrivo, richieste particolari..."></textarea>
                         </div>
                     </div>
 
-                    <form class="direct-booking-form" id="directBookingForm" novalidate>
-                        <div class="form-grid">
-                            <div class="form-field">
-                                <label for="dbNome">Nome</label>
-                                <input id="dbNome" name="nome" type="text" autocomplete="given-name" required />
-                            </div>
-                            <div class="form-field">
-                                <label for="dbCognome">Cognome</label>
-                                <input id="dbCognome" name="cognome" type="text" autocomplete="family-name" required />
-                            </div>
-                            <div class="form-field">
-                                <label for="dbEmail">Email</label>
-                                <input id="dbEmail" name="email" type="email" autocomplete="email" required />
-                            </div>
-                            <div class="form-field">
-                                <label for="dbTelefono">Telefono</label>
-                                <input id="dbTelefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" required />
-                            </div>
-                            <div class="form-field">
-                                <label for="dbOspiti">Numero ospiti</label>
-                                <select id="dbOspiti" name="ospiti" required>
-                                    <option value="" selected disabled>Seleziona</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                </select>
-                            </div>
-                            <div class="form-field">
-                                <label for="dbArrivo">Data arrivo</label>
-                                <input id="dbArrivo" name="arrivo" type="date" required />
-                            </div>
-                            <div class="form-field">
-                                <label for="dbPartenza">Data partenza</label>
-                                <input id="dbPartenza" name="partenza" type="date" required />
-                            </div>
-                            <div class="form-field form-field-full">
-                                <label for="dbMessaggio">Messaggio (opzionale)</label>
-                                <textarea id="dbMessaggio" name="messaggio" rows="2" placeholder="Es. orario di arrivo, richieste particolari..."></textarea>
-                            </div>
-                        </div>
+                    <div class="form-consent">
+                        <label class="consent-row">
+                            <input id="dbPrivacy" type="checkbox" required />
+                            <span>Ho letto e accetto il <a href="regolamento.html" class="legal-link" data-legal="regolamento.html">Regolamento</a> e la <a href="privacy.html" class="legal-link" data-legal="privacy.html">Privacy Policy</a>.</span>
+                        </label>
+                        <button type="submit" class="btn btn-primary btn-small form-submit">Invia richiesta</button>
+                    </div>
 
-                        <div class="form-consent">
-                            <label class="consent-row">
-                                <input id="dbPrivacy" type="checkbox" required />
-                                <span>Ho letto e accetto il <a href="regolamento.html" class="legal-link" data-legal="regolamento.html">Regolamento</a> e la <a href="privacy.html" class="legal-link" data-legal="privacy.html">Privacy Policy</a>.</span>
-                            </label>
-                            <button type="submit" class="btn btn-primary btn-small form-submit">Invia richiesta</button>
-                        </div>
-
-                        <p class="form-note">Nota: si aprirà la tua app email con il testo già pronto. Se non hai un’app email configurata, scrivi a <a href="mailto:casafioreciampino@gmail.com">casafioreciampino@gmail.com</a>.</p>
-                        <p class="form-error" id="directBookingError" aria-live="polite"></p>
-                    </form>
-                </div>
+                    <p class="form-note">Nota: si aprirà la tua app email con il testo già pronto. Se non hai un’app email configurata, scrivi a <a href="mailto:casafioreciampino@gmail.com">casafioreciampino@gmail.com</a>.</p>
+                    <p class="form-error" id="directBookingError" aria-live="polite"></p>
+                </form>
             </div>
 
-            <div class="booking-col booking-col-right">
-                <a href="https://www.vrbo.com/it-it/affitto-vacanze/p11860959" 
-                   target="_blank" rel="noopener" class="booking-card">
-                    <h3>🏡 VRBO (Expedia)</h3>
-                    <p>Prenotazione semplice, supporto Expedia, pagamento affidabile.</p>
-                    <span class="arrow">→</span>
-                </a>
-
-                <div class="booking-card-calendar" id="disponibilita">
-                    <h3>📅 Disponibilità</h3>
-                    <p>Qui comparirà un calendario chiaro con date disponibili e non disponibili (sincronizzato dalle piattaforme).</p>
-                    <div id="availabilityCalendar" class="availability-calendar" aria-label="Calendario disponibilità"></div>
-                    <p class="calendar-note">Nota: la sincronizzazione iCal può richiedere qualche minuto.</p>
-                </div>
+            <div class="booking-card-calendar" id="disponibilita">
+                <h3>📅 Disponibilità</h3>
+                <p>Qui comparirà un calendario chiaro con date disponibili e non disponibili (sincronizzato dalle piattaforme).</p>
+                <div id="availabilityCalendar" class="availability-calendar" aria-label="Calendario disponibilità"></div>
+                <p class="calendar-note">Nota: la sincronizzazione iCal può richiedere qualche minuto.</p>
             </div>
         </div>
 
