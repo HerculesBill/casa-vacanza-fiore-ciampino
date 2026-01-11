@@ -3,7 +3,7 @@ name: Sync iCal availability
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '0 */12 * * *'
 
 permissions:
   contents: write
