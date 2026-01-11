@@ -1270,9 +1270,10 @@ body.modal-open {
 
 .booking-buttons {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--spacing-lg);
     margin-bottom: var(--spacing-2xl);
+    align-items: stretch;
 }
 
 .booking-card {
@@ -1313,15 +1314,19 @@ body.modal-open {
     font-weight: 900;
 }
 
+/* Direct booking card as a horizontal rectangle */
 .booking-card-direct {
+    grid-column: 1 / -1;
     background: rgba(255,255,255,0.16);
     color: rgba(255,255,255,0.96);
     border: 1px solid rgba(255,255,255,0.28);
     box-shadow: 0 18px 60px rgba(0,0,0,0.22);
+    padding: 18px;
 }
 
 .booking-card-direct h3 {
     color: rgba(255,255,255,0.98);
+    margin-bottom: 6px;
 }
 
 .booking-card-direct p {
@@ -1334,15 +1339,16 @@ body.modal-open {
     opacity: 0.92;
 }
 
-/* Direct booking form (mailto) */
+/* Direct booking form (mailto) - compact horizontal */
 .direct-booking-form {
-    margin-top: 14px;
+    margin-top: 10px;
 }
 
 .form-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 12px;
+    align-items: end;
 }
 
 .form-field {
@@ -1356,7 +1362,7 @@ body.modal-open {
 }
 
 .direct-booking-form label {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 800;
     color: rgba(255,255,255,0.92);
 }
@@ -1369,7 +1375,7 @@ body.modal-open {
     border: 1px solid rgba(255,255,255,0.22);
     background: rgba(255,255,255,0.14);
     color: rgba(255,255,255,0.96);
-    padding: 12px 12px;
+    padding: 10px 12px;
     font-size: 14px;
     outline: none;
 }
@@ -1394,6 +1400,10 @@ body.modal-open {
     margin-top: 10px;
     padding-top: 10px;
     border-top: 1px solid rgba(255,255,255,0.18);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: center;
 }
 
 .consent-row {
@@ -1412,7 +1422,7 @@ body.modal-open {
 }
 
 .form-note {
-    margin-top: 8px;
+    margin-top: 0;
     font-size: 12px;
     color: rgba(255,255,255,0.80);
     line-height: 1.5;
@@ -1425,8 +1435,9 @@ body.modal-open {
 }
 
 .form-submit {
-    margin-top: 12px;
-    width: 100%;
+    width: auto;
+    margin-top: 0;
+    white-space: nowrap;
 }
 
 .form-error {
@@ -1769,8 +1780,26 @@ body.modal-open {
         max-width: 560px;
     }
 
+    /* Booking grid: 2 columns + direct card full width */
+    .booking-buttons {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .booking-card-direct {
+        grid-column: 1 / -1;
+    }
+
+    /* Direct form: 2 columns */
     .form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .form-consent {
         grid-template-columns: 1fr;
+    }
+
+    .form-submit {
+        width: 100%;
     }
 }
 
@@ -1868,6 +1897,19 @@ body.modal-open {
 
     .media-grid-3 {
         grid-template-columns: 1fr;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-consent {
+        grid-template-columns: 1fr;
+    }
+
+    .form-submit {
+        width: 100%;
+        margin-top: 12px;
     }
 
     /* Sticky booking bar */
