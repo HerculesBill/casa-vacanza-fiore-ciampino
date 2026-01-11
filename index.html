@@ -721,8 +721,17 @@
             </a>
 
             <div class="booking-card booking-card-direct">
-                <h3>💌 Prenotazione diretta</h3>
-                <p>Compila i dati: si aprirà la tua app email con il messaggio già pronto. Premi “Invia” per inviarci la richiesta.</p>
+                <div class="direct-header">
+                    <div class="direct-header-left">
+                        <h3>💌 Prenotazione diretta</h3>
+                        <p class="direct-subtitle">Richiesta senza impegno: ti rispondiamo entro 24h con conferma e istruzioni.</p>
+                    </div>
+                    <div class="direct-header-right" aria-label="Vantaggi prenotazione diretta">
+                        <span class="direct-pill">✅ Risposta entro 24h</span>
+                        <span class="direct-pill">🔒 Dati solo per contatto</span>
+                        <span class="direct-pill">🧾 Nessun pagamento online</span>
+                    </div>
+                </div>
 
                 <form class="direct-booking-form" id="directBookingForm" novalidate>
                     <div class="form-grid">
@@ -764,7 +773,7 @@
                         </div>
                         <div class="form-field form-field-full">
                             <label for="dbMessaggio">Messaggio (opzionale)</label>
-                            <textarea id="dbMessaggio" name="messaggio" rows="3" placeholder="Es. orario di arrivo, richieste particolari..."></textarea>
+                            <textarea id="dbMessaggio" name="messaggio" rows="2" placeholder="Es. orario di arrivo, richieste particolari..."></textarea>
                         </div>
                     </div>
 
@@ -773,10 +782,10 @@
                             <input id="dbPrivacy" type="checkbox" required />
                             <span>Ho letto la <a href="privacy.html" class="legal-link" data-legal="privacy.html">Privacy Policy</a>.</span>
                         </label>
-                        <p class="form-note">Nota: l’invio avviene tramite la tua app email (Gmail, Mail, Outlook). Se non hai un’app email configurata, puoi scriverci a <a href="mailto:casafioreciampino@gmail.com">casafioreciampino@gmail.com</a>.</p>
+                        <button type="submit" class="btn btn-primary btn-small form-submit">Invia richiesta</button>
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-small form-submit">Invia richiesta di prenotazione</button>
+                    <p class="form-note">Nota: si aprirà la tua app email con il testo già pronto. Se non hai un’app email configurata, scrivi a <a href="mailto:casafioreciampino@gmail.com">casafioreciampino@gmail.com</a>.</p>
                     <p class="form-error" id="directBookingError" aria-live="polite"></p>
                 </form>
             </div>
@@ -852,7 +861,7 @@
         <div class="footer-bottom">
             <p>&copy; 2025 Casa Vacanze Fiore Ciampino. Tutti i diritti riservati.</p>
             <p>
-                <a href="privacy.html" class="legal-link" data-legal="privacy.html">Privacy Policy</a> |
+                <a href="privacy.html" class="legal-link" data-legal="privacy.html">Privacy Policy</a |
                 <a href="cookie.html" class="legal-link" data-legal="cookie.html">Cookie Policy</a>
             </p>
         </div>
