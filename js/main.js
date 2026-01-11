@@ -441,19 +441,29 @@ const initAvailabilityCalendar = () => {
 
             cell.textContent = String(dayNum);
             cell.dataset.date = iso;
-            cell.setAttribute('aria-label', `${fmtDayLong.format(dateObj)}: ${isBooked ? 'prenotato' : 'libero'}${isPast ? ', giorno passato' : ''}`);
+
+            const ariaParts = [fmtDayLong.format(dateObj), isBooked ? 'prenotato' : 'libero'];
+            if (isPast) ariaParts.push('giorno passato');
+            if (isBooked) ariaParts.push('non selezionabile');
+            cell.setAttribute('aria-label', ariaParts.join(': ').replace(': :', ': '));
 
             cell.classList.add(isBooked ? 'is-booked' : 'is-available');
 
+            // Disable past + booked days (requested)
             if (isPast) {
                 cell.classList.add('is-past');
+                cell.disabled = true;
+            }
+
+            if (isBooked) {
                 cell.disabled = true;
             }
 
             if (iso === toISODateLocal(today)) cell.classList.add('is-today');
             if (iso === selectedISO) cell.classList.add('is-selected');
 
-            if (!isPast) {
+            // Click only on selectable days
+            if (!isPast && !isBooked) {
                 cell.addEventListener('click', () => {
                     selectedISO = iso;
 
