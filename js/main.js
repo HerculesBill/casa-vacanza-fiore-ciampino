@@ -38,6 +38,23 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Home link: scroll to top instead of reloading page
+const initHomeScroll = () => {
+    const homeLinks = document.querySelectorAll('a[href="index.html"], a[href="./index.html"], a[href="/"]');
+
+    homeLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            // If already on the homepage, prevent reload and just scroll to top
+            const path = window.location.pathname || '';
+            const onHome = path.endsWith('/') || path.endsWith('/index.html');
+            if (!onHome) return;
+
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    });
+};
+
 // Navbar scroll effect
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
@@ -231,7 +248,8 @@ const initLegalModal = () => {
             e.preventDefault();
 
             const isPrivacy = url.toLowerCase().includes('privacy');
-            const label = isPrivacy ? 'Privacy Policy' : 'Cookie Policy';
+            const isRegolamento = url.toLowerCase().includes('regolamento');
+            const label = isPrivacy ? 'Privacy Policy' : (isRegolamento ? 'Regolamento' : 'Cookie Policy');
 
             loadLegal(url, label);
         });
@@ -273,7 +291,7 @@ const initDirectBookingForm = () => {
         }
 
         if (!privacyOk) {
-            setError('Per inviare la richiesta, conferma di aver letto la Privacy Policy.');
+            setError('Per inviare la richiesta, conferma di aver letto e accettato Privacy Policy e Regolamento.');
             return;
         }
 
@@ -310,6 +328,7 @@ const initDirectBookingForm = () => {
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
+    initHomeScroll();
     animateOnScroll();
     initCarousel();
     initLegalModal();
