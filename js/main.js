@@ -490,8 +490,10 @@ const initAvailabilityCalendar = () => {
 
     const loadAvailability = async () => {
         try {
+            // Use the same JSON file for both IT (/) and EN (/en/)
             // cache-bust because GitHub Pages can cache aggressively
-            const res = await fetch(`data/availability.json?v=${Date.now()}`, { cache: 'no-store' });
+            const basePrefix = window.location.pathname.includes('/en/') ? '../' : '';
+            const res = await fetch(`${basePrefix}data/availability.json?v=${Date.now()}`, { cache: 'no-store' });
             if (!res.ok) throw new Error('Availability fetch failed');
 
             const json = await res.json();
