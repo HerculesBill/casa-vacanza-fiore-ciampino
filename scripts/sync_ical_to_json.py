@@ -94,6 +94,13 @@ def _extract_booked_dates(ical_text: str) -> set[str]:
     return dates
 
 
+def _write_json(path: str, payload: dict):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(payload, f, ensure_ascii=False, indent=2)
+        f.write('\n')
+
+
 def main():
     booking_url = os.environ.get('BOOKING_ICAL_URL', '').strip()
     airbnb_url = os.environ.get('AIRBNB_ICAL_URL', '').strip()
@@ -126,12 +133,10 @@ def main():
         'booked': sorted(all_booked),
     }
 
-    os.makedirs('data', exist_ok=True)
-    with open('data/availability.json', 'w', encoding='utf-8') as f:
-        json.dump(payload, f, ensure_ascii=False, indent=2)
-        f.write('\n')
+    _write_json('data/availability.json', payload)
+    _write_json('en/data/availability.json', payload)
 
-    print(f"Wrote data/availability.json with {len(payload['booked'])} booked dates")
+    print(f"Wrote availability.json with {len(payload['booked'])} booked dates")
 
 
 if __name__ == '__main__':
