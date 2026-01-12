@@ -2073,8 +2073,16 @@ body.modal-open {
     text-decoration: underline;
 }
 
+/*
+  Make the legal "Back to Home" button robust across both languages and both URL styles.
+  - Works with: href="index.html" (used inside /en/)
+  - Works with: href="./index.html"
+  - Works with: href="/" or href="./" (common for root home on GitHub Pages)
+*/
 .legal-page a[href="index.html"],
-.legal-page a[href="./index.html"] {
+.legal-page a[href="./index.html"],
+.legal-page a[href="/"],
+.legal-page a[href="./"] {
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -2087,7 +2095,9 @@ body.modal-open {
 }
 
 .legal-page a[href="index.html"]:hover,
-.legal-page a[href="./index.html"]:hover {
+.legal-page a[href="./index.html"]:hover,
+.legal-page a[href="/"]:hover,
+.legal-page a[href="./"]:hover {
     background: rgba(200,122,143,0.16);
     text-decoration: none;
 }
