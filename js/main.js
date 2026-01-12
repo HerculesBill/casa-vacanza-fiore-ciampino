@@ -279,7 +279,7 @@ const initLegalModal = () => {
     const titleEl = document.getElementById('legalTitle');
     const openPageEl = document.getElementById('legalOpenPage');
 
-    if (!modal || !contentEl || !titleEl || !openPageEl) return;
+    if (!modal || !contentEl || !titleEl) return;
 
     const closeModal = () => {
         modal.classList.remove('is-open');
@@ -313,7 +313,8 @@ const initLegalModal = () => {
     const loadLegal = async (url, label) => {
         setLoading();
         titleEl.textContent = label;
-        openPageEl.href = url;
+
+        if (openPageEl) openPageEl.href = url;
 
         try {
             const res = await fetch(url, { cache: 'no-store' });
