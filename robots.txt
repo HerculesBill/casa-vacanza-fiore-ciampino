@@ -1,5 +1,2 @@
 User-agent: *
-Disallow: /
-
-# Blocca tutti i motori di ricerca dal sito
-# Il sito rimarrà accessibile solo a chi ha il link diretto
+Disallow:
